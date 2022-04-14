@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="#16000000"
+        android:padding="10dp"
+        android:layout_margin="1dp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/textbase"
+            android:textStyle="italic"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Phát chuông"
+            />
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textField"
+                android:layout_width="wrap_content"
+                android:minWidth="80dp"
+
+                android:layout_height="wrap_content"
+                android:hint="Delay (Phút)">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/edChuong"
+                    android:textSize="10sp"
+                    android:inputType="numberDecimal"
+                    android:layout_height="wrap_content"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:minWidth="100dp"
+                    android:layout_centerVertical="true"
+                    android:hint="                           Chọn file âm thanh"
+                    android:layout_height="wrap_content"
+                   >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/edFileChoose"
+
+                        android:textSize="10sp"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <Button
+                    android:layout_centerVertical="true"
+                    android:layout_width="50dp"
+                    android:id="@+id/btnChooseChuong"
+                    android:text="..."
+                    android:layout_height="35dp"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="#16000000"
+        android:padding="10dp"
+        android:layout_margin="1dp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/textbase"
+            android:textStyle="italic"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Đoạn Pháp ngắn"
+            />
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:minWidth="80dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Delay start">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/edPhapStart"
+                        android:textSize="10sp"
+                        android:inputType="numberDecimal"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:minWidth="80dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Delay end">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/edPhapEnd"
+                        android:textSize="10sp"
+                        android:inputType="numberDecimal"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:minWidth="100dp"
+                        android:id="@+id/tmp55"
+                        android:hint="                           Chọn Thư mục Chứa Âm thanh"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:id="@+id/edPhapChoose"
+
+                            android:textSize="10sp"
+                            android:layout_height="wrap_content"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <Button
+                        android:layout_centerVertical="true"
+                        android:layout_width="50dp"
+                        android:id="@+id/btnChoosePhap"
+                        android:onClick="clickChoosePhap"
+                        android:text="..."
+                        android:layout_height="35dp"/>
+
+
+                </RelativeLayout>
+                <RadioGroup
+                    android:layout_below="@+id/tmp55"
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:text="Chạy"
+                        android:textSize="10sp"
+                        android:id="@+id/rdChay"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:text="Dừng"
+                        android:id="@+id/rdDung"
+                        android:textSize="10sp"
+                        android:layout_height="wrap_content"/>
+
+                </RadioGroup>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

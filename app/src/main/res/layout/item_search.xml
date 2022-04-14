@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lnln"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvNameSearch"
+        style="@style/tv_14sp"
+        android:layout_marginLeft="@dimen/dp2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/pading"
+        android:text="ten search"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tvSdtSearch"
+        style="@style/tv_12sp"
+        android:layout_marginLeft="@dimen/dp2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ten search" />
+
+</LinearLayout>

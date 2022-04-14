@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#60B3B1B1"
+    android:layout_marginBottom="1dp"
+    android:padding="4dp"
+    android:id="@+id/mroot"
+    android:orientation="vertical">
+
+
+    <TextView
+            android:id="@+id/tv"
+            style="@style/tv_13sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+        android:text="sdsd"
+            android:layout_gravity="center_vertical"
+            android:gravity="left"
+          />
+
+    <RelativeLayout
+        android:layout_marginTop="5dp"
+        android:id="@+id/parentThem"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+
+            android:id="@+id/vgEdGiaBan"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="wrap_content"
+                android:hint="Giá bán"
+                android:id="@+id/edGiaBan"
+                android:inputType="numberDecimal"
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_width="80dp"
+                android:background="#61FFF000"
+                android:id="@+id/viewEditGia"
+                android:visibility="gone"
+                android:layout_centerInParent="true"
+                android:layout_height="40dp"/>
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/btnTru"
+            android:layout_width="55dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+
+
+            android:layout_toRightOf="@+id/vgEdGiaBan"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:scaleType="fitEnd"
+            android:src="@drawable/arrow_tru" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:hint="Số lượng"
+            android:id="@+id/edSl"
+
+            android:layout_toRightOf="@+id/btnTru"
+            android:inputType="number"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/btnCong"
+            android:layout_toRightOf="@+id/edSl"
+            android:layout_width="55dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/arrow_cong" />
+        <Button
+            android:layout_width="wrap_content"
+            android:text="Thêm"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/btnThem"
+            android:layout_toRightOf="@+id/btnCong"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_below="@+id/btnThem"
+            android:background="#D5D2D2"
+            android:padding="3dp"
+            android:visibility="gone"
+            android:id="@+id/tmpHoi"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:text="Hãy chọn lý do bạn bán giá khác với hệ thống?"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
+                android:layout_width="match_parent"
+                android:weightSum="3"
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="0dp"
+                    android:text="Giá đã đổi"
+                    android:id="@+id/btnXXChange"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:text="Khuyến mại"
+                    android:layout_weight="1"
+                    android:id="@+id/btnXXSale"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:text="Nhập sai"
+                    android:layout_weight="1"
+                    android:id="@+id/btnXXNhapSai"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    </LinearLayout>
+

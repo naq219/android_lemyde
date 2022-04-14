@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+
+        android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Đây là Title " />
+        <ImageView
+            android:layout_width="50dp"
+            android:src="@drawable/ic_cancel"
+            android:scaleType="fitEnd"
+            android:layout_alignParentRight="true"
+            android:id="@+id/vCancel"
+            android:layout_centerVertical="true"
+            android:layout_height="20dp" />
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_gravity="center_horizontal"
+        android:text="noi dung 1"
+        android:id="@+id/btn1"
+        android:visibility="invisible"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:paddingLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:paddingRight="10dp"
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:layout_gravity="center_horizontal"
+        android:text="noi dung 2"
+
+        android:id="@+id/btn2"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:paddingLeft="10dp"
+        android:visibility="invisible"
+        android:paddingRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="noi dung 3"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btn3"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:visibility="invisible"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="noi dung 4"
+        android:id="@+id/btn4"
+        android:layout_height="wrap_content" />
+
+
+
+    </LinearLayout>

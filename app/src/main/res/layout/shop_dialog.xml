@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/mautrang"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/lnQl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/title_sanpham"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp2"
+                android:text="Tên quản lý:" />
+
+            <EditText
+                android:id="@+id/edtNameQL"
+                style="@style/tv_15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-1dp"
+                android:background="@drawable/bg_khung"
+                android:inputType="textMultiLine|textCapSentences"
+                android:padding="@dimen/dp10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnFb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/title_sanpham"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp2"
+                android:text="Facebook:" />
+
+            <EditText
+                android:id="@+id/edtNameFB"
+                style="@style/tv_15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-1dp"
+                android:background="@drawable/bg_khung"
+                android:inputType="textMultiLine|textCapSentences"
+                android:padding="@dimen/dp10" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/btn_margin2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvHuy"
+            style="@style/tv_15sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/btn_margin2"
+            android:layout_marginRight="@dimen/btn_margin1"
+            android:layout_weight="1"
+            android:background="#ed6264"
+            android:gravity="center"
+            android:padding="@dimen/btn_margin10"
+            android:text="Hủy"
+            android:textColor="@color/mautrang" />
+
+        <TextView
+            android:id="@+id/tvOK"
+            style="@style/tv_15sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/btn_margin1"
+            android:layout_marginRight="@dimen/btn_margin2"
+            android:layout_weight="1"
+            android:background="@color/mauxanhduong2"
+            android:gravity="center"
+            android:padding="@dimen/btn_margin10"
+            android:text="Ok"
+            android:textColor="@color/mautrang" />
+    </LinearLayout>
+</RelativeLayout>

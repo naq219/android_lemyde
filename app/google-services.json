@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "692353599083",
+    "firebase_url": "https://lemyde2018.firebaseio.com",
+    "project_id": "lemyde2018",
+    "storage_bucket": "lemyde2018.appspot.com"
+  },
+  "client": [
+    {
+
+      "client_info": {
+        "mobilesdk_app_id": "1:692353599083:android:935085c870e12b50",
+        "android_client_info": {
+          "package_name": "com.lemyshop3"
+        }
+      },
+      "client_info1": {
+        "mobilesdk_app_id": "1:692353599083:android:935085c870e12b50",
+        "android_client_info": {
+          "package_name": "com.lemyshop.nhapdon"
+        }
+      },
+
+      "oauth_client": [
+        {
+          "client_id": "692353599083-cruq91rtn192aoon3h7r3kfufb167ff0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lemyshop3",
+            "certificate_hash": "3c5bad24810e92940bad617c672c6191e3e58b92"
+          }
+        },
+        {
+          "client_id": "692353599083-uqjkbrksei0mvi1gu13hiqpskhfg89eo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALS9yjKbOhf5XB2UrbX6Grw9WH1YbBGKg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692353599083-uqjkbrksei0mvi1gu13hiqpskhfg89eo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

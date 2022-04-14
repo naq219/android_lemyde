@@ -1,0 +1,275 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mautrang"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/btn_margin5"
+        android:background="@color/xamtrang"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin5"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/ckMadh"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1.5"
+                android:padding="@dimen/pading"
+                android:text="Mã đơn hàng"
+                android:textColor="@color/mauden"
+                android:textSize="@dimen/them" />
+
+            <CheckBox
+                android:id="@+id/ckNgaytao"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1"
+                android:padding="@dimen/pading"
+                android:text="Ngày tạo"
+                android:textColor="@color/mauden"
+                android:textSize="@dimen/them" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin5"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/ckPhuongthuctt"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1.5"
+                android:padding="@dimen/pading"
+                android:text="Phương thức thanh toán"
+                android:textColor="@color/mauden"
+                android:textSize="@dimen/them" />
+
+            <CheckBox
+                android:id="@+id/ckTenkh"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1"
+                android:padding="@dimen/pading"
+                android:text="Tên khách hàng"
+                android:textColor="@color/mauden"
+                android:textSize="@dimen/them" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin5"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/ckNguoitao"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1.5"
+                android:padding="@dimen/pading"
+                android:text="Người tạo"
+                android:textColor="@color/mauden"
+                android:textSize="@dimen/them" />
+
+            <CheckBox
+                android:id="@+id/ckGhichu"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1"
+                android:padding="@dimen/pading"
+                android:text="Ghi chú"
+                android:textColor="@color/mauden"
+                android:textSize="@dimen/them" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin5"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/ckTrangthai"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1.5"
+                android:padding="@dimen/pading"
+                android:text="@string/trangthai"
+                android:textColor="@color/mauden"
+                android:textSize="@dimen/them" />
+
+            <CheckBox
+                android:id="@+id/ckTongtien"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1"
+                android:padding="@dimen/pading"
+                android:text="Tổng tiền"
+                android:textColor="@color/mauden"
+                android:textSize="@dimen/them" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin5"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/ckThuthem"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1.5"
+                android:padding="@dimen/pading"
+                android:text="Thu thêm"
+                android:textColor="@color/mauden"
+                android:textSize="@dimen/them" />
+
+            <CheckBox
+                android:id="@+id/ckFreeship"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1"
+                android:padding="@dimen/pading"
+                android:text="Free ship"
+                android:textColor="@color/mauden"
+                android:textSize="@dimen/them" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin5"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/ckShop"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1.5"
+                android:padding="@dimen/pading"
+                android:text="Shop"
+                android:textColor="@color/mauden"
+                android:textSize="@dimen/them" />
+
+            <CheckBox
+                android:id="@+id/ckDiachi"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1"
+                android:padding="@dimen/pading"
+                android:text="Đc/ghi chú"
+                android:textColor="@color/mauden"
+                android:textSize="@dimen/them" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin5"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/ckSodt"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1.5"
+                android:padding="@dimen/pading"
+                android:text="Số điện thoại"
+                android:textColor="@color/mauden"
+                android:textSize="@dimen/them" />
+
+            <CheckBox
+                android:id="@+id/ckSanpham"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1"
+                android:padding="@dimen/pading"
+                android:text="SP"
+                android:textColor="@color/mauden"
+                android:textSize="@dimen/them" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin5"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/ckDoanhthu"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1.5"
+                android:padding="@dimen/pading"
+                android:text="Doanh thu"
+                android:textColor="@color/mauden"
+                android:textSize="@dimen/them" />
+
+            <CheckBox
+                android:id="@+id/ckPhiship"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1"
+                android:padding="@dimen/pading"
+                android:text="Phí ship"
+                android:textColor="@color/mauden"
+                android:textSize="@dimen/them" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvApply"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_edt"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/btn_margin5"
+        android:background="@drawable/bg_mau"
+        android:gravity="center"
+        android:padding="@dimen/pading"
+        android:text="Apply"
+        android:textColor="@color/mautrang" />
+</RelativeLayout>

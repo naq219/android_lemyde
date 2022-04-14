@@ -1,0 +1,76 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="height_edt">40dp</dimen>
+    <dimen name="btn_height">40dp</dimen>
+    <dimen name="btn_height60">60dp</dimen>
+    <dimen name="btn_height70">70dp</dimen>
+    <dimen name="btn_margin">2dp</dimen>
+    <dimen name="btn_width_them">20dp</dimen>
+    <dimen name="btn_width_dsach">100dp</dimen>
+    <dimen name="btn_margin10">10dp</dimen>
+    <dimen name="btn_margin5">5dp</dimen>
+    <dimen name="them">15sp</dimen>
+    <dimen name="pading">2dp</dimen>
+    <dimen name="btn_pading9">9dp</dimen>
+    <dimen name="btn_pading4">4dp</dimen>
+    <dimen name="btn_marginBottom">20dp</dimen>
+    <dimen name="size_chonql">14.5sp</dimen>
+    <dimen name="size_kluong">13.5sp</dimen>
+    <dimen name="btn_marginLeft5">5dp</dimen>
+    <dimen name="btn_marginRight5">5dp</dimen>
+    <dimen name="btn_marginLeft20">20dp</dimen>
+    <dimen name="size_img">30dp</dimen>
+    <dimen name="btn_marginRight10">10dp</dimen>
+    <dimen name="btn_marginRight2">2dp</dimen>
+    <dimen name="btn_marginBottom5">5dp</dimen>
+    <dimen name="btn_SizeedtText">14dp</dimen>
+    <dimen name="btn_margin2">2dp</dimen>
+    <dimen name="btn_margin1">1dp</dimen>
+    <dimen name="btn_width200">200dp</dimen>
+    <dimen name="btn_width250">250dp</dimen>
+    <dimen name="btn_width50">50dp</dimen>
+    <dimen name="btn_height35">35dp</dimen>
+    <dimen name="btn_size">14sp</dimen>
+    <dimen name="btn_size12">12sp</dimen>
+
+    <dimen name="dp1">1dp</dimen>
+    <dimen name="dp2">2dp</dimen>
+    <dimen name="dp3">3dp</dimen>
+    <dimen name="dp5">5dp</dimen>
+    <dimen name="dp7">7dp</dimen>
+    <dimen name="dp10">10dp</dimen>
+    <dimen name="dp15">15dp</dimen>
+    <dimen name="dp17">17dp</dimen>
+    <dimen name="dp20">20dp</dimen>
+    <dimen name="dp25">25dp</dimen>
+    <dimen name="dp30">30dp</dimen>
+    <dimen name="dp35">35dp</dimen>
+    <dimen name="dp40">40dp</dimen>
+    <dimen name="dp45">45dp</dimen>
+    <dimen name="dp50">50dp</dimen>
+    <dimen name="dp55">55dp</dimen>
+    <dimen name="dp60">60dp</dimen>
+    <dimen name="dp70">70dp</dimen>
+    <dimen name="dp80">80dp</dimen>
+    <dimen name="dp90">90dp</dimen>
+    <dimen name="dp100">100dp</dimen>
+    <dimen name="dp110">110dp</dimen>
+    <dimen name="dp120">120dp</dimen>
+    <dimen name="dp150">150dp</dimen>
+    <dimen name="dp200">200dp</dimen>
+
+    <dimen name="sp10">10sp</dimen>
+    <dimen name="sp12">12sp</dimen>
+    <dimen name="sp13">13sp</dimen>
+    <dimen name="sp14">14sp</dimen>
+    <dimen name="sp15">15sp</dimen>
+    <dimen name="sp16">16sp</dimen>
+    <dimen name="sp17">17sp</dimen>
+    <dimen name="sp18">18sp</dimen>
+
+</resources>

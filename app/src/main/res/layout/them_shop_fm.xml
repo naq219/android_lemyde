@@ -1,0 +1,127 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/mauxamtrang"
+    android:orientation="vertical"
+    tools:context="com.project.shop.lemy.fragment.ThemShopFm">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/mautrang"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTenshop"
+                style="@style/title_sanpham"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp2"
+                android:text="@string/tenshop" />
+
+            <EditText
+                android:id="@+id/edtTenshop"
+                style="@style/tv_14sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-1dp"
+                android:background="@drawable/bg_khung"
+                android:hint="Nhập tên shop"
+                android:inputType="textMultiLine|textCapSentences"
+                android:padding="@dimen/dp10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvFacebook"
+                style="@style/title_sanpham"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp2"
+                android:text="@string/facebook" />
+
+            <EditText
+                android:id="@+id/edtFacebook"
+                style="@style/tv_14sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-1dp"
+                android:background="@drawable/bg_khung"
+                android:hint="Nhập facebook"
+                android:inputType="textMultiLine|textCapSentences"
+                android:padding="@dimen/dp10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvChonql"
+                style="@style/title_sanpham"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp2"
+                android:text="@string/chonql" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_khung"
+                android:padding="@dimen/dp5">
+
+                <Spinner
+                    android:id="@+id/spnChonQl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"></Spinner>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvThemshop"
+            style="@style/tv_15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/dp2"
+            android:layout_marginRight="@dimen/dp2"
+            android:layout_marginTop="@dimen/btn_marginLeft20"
+            android:background="@drawable/bg_update_sp"
+            android:gravity="center"
+            android:padding="@dimen/btn_pading9"
+            android:text="@string/them"
+            android:textColor="@color/mautrang" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/prBarAddShop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/btn_height60"
+        android:padding="@dimen/btn_margin5"
+        android:visibility="gone" />
+</RelativeLayout>

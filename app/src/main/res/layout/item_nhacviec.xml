@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/lnroot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp"
+
+    tools:context="com.project.shop.lemy.dvvc.ThemDvvcFm">
+    <RelativeLayout
+        android:background="#ffffff"
+        android:padding="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/content"
+            style="@style/myTv"
+            android:layout_width="match_parent"
+            android:layout_toLeftOf="@+id/btnDone"
+            android:text="asdassdasdadsaaasdasdasdasdasdasdasdasddas\nasdaddasdadaasdasdasdasdasasdasdslh" />
+
+        <TextView
+            android:id="@+id/tvDone"
+            style="@style/myTv"
+
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+
+            android:background="#A8009688"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textColor="#C0FFFFFF"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/btnDone"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:src="@drawable/tick" />
+
+        <TextView
+            android:id="@+id/tvNote"
+            style="@style/myTv"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/content"
+            android:text="sua cod ck sau"
+            android:textColor="#FF5722"
+            android:textSize="10sp"
+
+            android:textStyle="italic" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_below="@+id/tvNote"
+            android:id="@+id/viewNote"
+            android:visibility="gone"
+            android:layout_margin="5dp"
+            android:background="@drawable/edittext_rounded_corners_border"
+            android:layout_height="wrap_content">
+            <EditText
+                android:textColorHint="#A9FF5722"
+                android:orientation="vertical"
+
+                android:visibility="visible"
+                android:textColor="#A9FF5722"
+                android:id="@+id/edNote"
+                android:hint="Nhập ghi chú..."
+
+                android:layout_toLeftOf="@+id/tvGui"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tvGui"
+                android:background="#A4FF9800"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:text="Gửi"
+                android:layout_centerVertical="true"
+                android:padding="3dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#3C000000"
+
+        android:layout_height="1dp"/>
+
+</RelativeLayout>

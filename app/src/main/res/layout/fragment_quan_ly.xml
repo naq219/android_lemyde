@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mautrang"
+    tools:context="com.project.shop.lemy.fragment.ShopFm">
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/lnLayoutql1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/mauxamtrang"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:padding="@dimen/btn_margin10">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tvTenql"-->
+            <!--style="@style/title_sanpham"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_weight="2"-->
+            <!--android:gravity="center"-->
+            <!--android:text="@string/tenquanly" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tvFacebookql"-->
+            <!--style="@style/title_sanpham"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="@string/facebook" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tvMenu"-->
+            <!--style="@style/title_sanpham"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_weight="0.4"-->
+            <!--android:gravity="center"-->
+            <!--android:text="@string/tru" />-->
+    <!--</LinearLayout>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcViewql"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/btn_margin2"
+        android:background="@color/mautrang"></androidx.recyclerview.widget.RecyclerView>
+
+    <ProgressBar
+        android:id="@+id/prBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true" />
+</RelativeLayout>

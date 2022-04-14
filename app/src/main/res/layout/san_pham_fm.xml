@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    tools:context="com.project.shop.lemy.sanpham.SanPhamFm">
+
+    <LinearLayout
+        android:id="@+id/ln1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp2"
+        android:padding="@dimen/dp1"
+        android:background="@drawable/bg_khungvien"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <EditText
+                android:id="@+id/edtDssp"
+                style="@style/tv_15sp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp35"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dp5"
+                android:paddingLeft="32dp"
+                android:layout_weight="4"
+                android:background="@color/bg_edtext"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center|left"
+                android:hint="Nhập tên sản phẩm"
+                android:maxLines="1"
+                android:layout_toLeftOf="@+id/spinner"
+                android:textColorHint="@color/dg_vien" />
+            <Spinner
+                android:layout_width="wrap_content"
+                android:id="@+id/spinner"
+                android:layout_marginLeft="4dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:layout_width="32dp"
+                android:id="@+id/btnAddSp"
+                android:padding="5dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_add"
+                android:layout_height="32dp"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imgHuy"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp30"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/dp3"
+            android:padding="9dp"
+            android:src="@drawable/ic_huy"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcViewsp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ln1"
+
+        android:background="@color/recycle"></androidx.recyclerview.widget.RecyclerView>
+
+    <ProgressBar
+        android:id="@+id/prBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:visibility="gone"
+        android:layout_alignTop="@+id/rcViewsp"
+        android:layout_marginTop="@dimen/height_edt"
+        android:padding="@dimen/btn_margin5" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="Tải nhiều"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/loadNhieu"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

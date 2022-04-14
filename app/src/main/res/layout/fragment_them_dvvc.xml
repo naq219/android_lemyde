@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lnAddDvvc"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.project.shop.lemy.dvvc.ThemDvvcFm">
+
+    <TextView
+        style="@style/tv_15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp5"
+        android:layout_marginRight="@dimen/dp5"
+        android:layout_marginTop="@dimen/dp5"
+        android:paddingLeft="@dimen/dp2"
+        android:text="Id Dvvc" />
+
+    <EditText
+        android:id="@+id/edtAddIdDvvc"
+        style="@style/tv_14sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp5"
+        android:layout_marginLeft="@dimen/dp5"
+        android:layout_marginRight="@dimen/dp5"
+        android:background="@drawable/bg_khung"
+        android:padding="@dimen/dp10" />
+
+    <TextView
+        style="@style/tv_15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp5"
+        android:layout_marginRight="@dimen/dp5"
+        android:layout_marginTop="@dimen/dp5"
+        android:paddingLeft="@dimen/dp2"
+        android:text="Tên Dvvc" />
+
+    <EditText
+        android:id="@+id/edtAddNameDvvc"
+        style="@style/tv_14sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp5"
+        android:layout_marginLeft="@dimen/dp5"
+        android:inputType="textCapSentences|textAutoCorrect"
+        android:layout_marginRight="@dimen/dp5"
+        android:background="@drawable/bg_khung"
+        android:padding="@dimen/dp10"
+        />
+
+    <TextView
+        android:id="@+id/btnAddDvvc"
+        style="@style/tv_15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp5"
+        android:layout_marginLeft="@dimen/dp5"
+        android:layout_marginRight="@dimen/dp5"
+        android:layout_marginTop="@dimen/dp5"
+        android:background="@drawable/bg_add"
+        android:gravity="center"
+        android:padding="@dimen/dp10"
+        android:text="Thêm"
+        android:textColor="@color/mautrang"
+        android:textSize="18sp" />
+</LinearLayout>

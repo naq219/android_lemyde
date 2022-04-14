@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_edtext"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvTendsspsp"
+        style="@style/title_sanpham"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp5"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="@dimen/dp2"
+        android:maxLines="2"
+        android:text="dầu dưỡng" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="-1dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgHinhanh"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="@dimen/dp3"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_hinhanhsp" />
+
+                <TextView
+                    android:id="@+id/tvSave"
+                    style="@style/tv_14sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp2"
+                    android:background="@drawable/bg_save"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:text="Save"
+                    android:textColor="@color/mautrang" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp5"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/ln1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp2"
+                        android:layout_marginRight="@dimen/dp10"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/title_gia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dp2"
+                            android:padding="@dimen/dp5"
+                            android:text="Giá buôn:" />
+
+                        <TextView
+                            style="@style/title_gia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dp2"
+                            android:padding="@dimen/dp5"
+                            android:text="Giá sỉ:" />
+
+                        <TextView
+                            style="@style/title_gia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dp2"
+                            android:padding="@dimen/dp5"
+                            android:text="Giá lẻ:" />
+
+                        <TextView
+                            style="@style/title_gia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dp2"
+                            android:padding="@dimen/dp5"
+                            android:text="Trạng thái:" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ln2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ln1"
+                        android:layout_marginBottom="@dimen/dp2"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/edGiaNhap"
+                            style="@style/tv_14sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dp2"
+                            android:background="@drawable/bg_khungvien"
+                            android:inputType="number"
+                            android:padding="@dimen/dp5"
+                            android:text="150000k" />
+
+                        <EditText
+                            android:id="@+id/edtGiaSi"
+                            style="@style/tv_14sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dp2"
+                            android:background="@drawable/bg_khungvien"
+                            android:inputType="number"
+                            android:padding="@dimen/dp5"
+                            android:text="150000k" />
+
+                        <EditText
+                            android:id="@+id/edtGiaLe"
+                            style="@style/tv_14sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dp2"
+                            android:background="@drawable/bg_khungvien"
+                            android:inputType="number"
+                            android:padding="@dimen/dp5"
+                            android:text="150000k" />
+
+                        <TextView
+                            android:id="@+id/tvTrangthai"
+                            style="@style/tv_14sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_khungvien"
+                            android:drawableRight="@drawable/ic_down_tt"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/dp5" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="@color/cardview_dark_background"></View>
+</LinearLayout>

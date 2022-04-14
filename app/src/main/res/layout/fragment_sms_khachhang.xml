@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mauxamtrang">
+
+    <TextView
+        android:id="@+id/tvNameShop"
+        style="@style/title_sanpham"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="@dimen/dp5"
+        android:text="Chọn shop để gửi sms" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcViewql"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvNameShop"
+        android:layout_marginTop="@dimen/btn_margin2"
+        android:background="@color/recycle"></androidx.recyclerview.widget.RecyclerView>
+
+    <ProgressBar
+        android:id="@+id/prBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true" />
+</RelativeLayout>

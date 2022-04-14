@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="#332B5F" />
+
+
+    <LinearLayout
+        android:id="@+id/lnChung"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:weightSum="4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="WELCOME TO LEMYDE"
+                android:textColor="#CCCBCB"
+                android:textSize="27sp" />
+
+            <ImageView
+                android:id="@+id/imgGroup"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_launcher1"
+
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/phienban"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20px"
+            android:gravity="center"
+            android:text="PhiĂªn báº£n "
+            android:textColor="#B1AFAF"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="#5fffffff"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/edtPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#5fffffff"
+                android:drawableLeft="@drawable/ic_lock"
+                android:drawablePadding="5dp"
+                android:hint="Password"
+                android:padding="10dp"
+                android:theme="@style/Theme.App.Base" />
+
+            <ImageView
+                android:id="@+id/btnShowText"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_showpass"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edCodeNv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="30dp"
+            android:background="#5fffffff"
+            android:drawablePadding="5dp"
+            android:hint="Nhập code nhân viên "
+            android:padding="10dp"
+            android:theme="@style/Theme.App.Base" />
+
+
+
+        <TextView
+            android:id="@+id/btnLogin"
+            style="@style/tv_dangnhap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:background="#5f181818"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="LOGIN"
+
+            android:textColor="@color/mautrang"
+            android:textSize="18dp" />
+
+
+        <EditText
+            android:id="@+id/edCommand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:background="#5fffffff"
+            android:drawablePadding="5dp"
+            android:hint="Nhập lệnh"
+            android:padding="10dp"
+
+            android:theme="@style/Theme.App.Base" />
+        <EditText
+            android:id="@+id/edFilterPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:layout_marginTop="100dp"
+            android:background="#5fffffff"
+            android:drawablePadding="5dp"
+            android:hint="Không được nhập vào đây"
+            android:padding="10dp"
+            android:theme="@style/Theme.App.Base" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

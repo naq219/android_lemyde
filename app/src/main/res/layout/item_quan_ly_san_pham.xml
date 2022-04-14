@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cdView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/mauxamtrang"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/btn_height60"
+                    android:layout_gravity="center"
+                    android:layout_weight="4"
+                    android:background="@color/mauxamtrang"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imgHinhanhitem"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:src="@drawable/ic_hinhanhsp"
+                        android:text="KH00015"
+                        android:textColor="@color/mauxamden" />
+
+                    <View
+                        android:layout_width="0.2dp"
+                        android:layout_height="@dimen/btn_height60"
+                        android:background="@color/reset" />
+
+                    <TextView
+                        android:id="@+id/tvTenitemqlsp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="Chảo xào wok wmf 32cm"
+                        android:textColor="@color/mauxamden"
+                        android:textSize="@dimen/btn_size12" />
+
+                    <View
+                        android:layout_width="0.2dp"
+                        android:layout_height="@dimen/btn_height60"
+                        android:background="@color/reset" />
+
+                    <TextView
+                        android:id="@+id/tvGianhapitem"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="200k"
+                        android:textColor="@color/mauxamden"
+                        android:textSize="@dimen/btn_size12" />
+
+                    <View
+                        android:layout_width="0.2dp"
+                        android:layout_height="@dimen/btn_height60"
+                        android:background="@color/reset" />
+
+                    <TextView
+                        android:id="@+id/tvGiabuonitem"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="300k"
+                        android:textColor="@color/mauxamden"
+                        android:textSize="@dimen/btn_size12" />
+
+                    <View
+                        android:layout_width="0.2dp"
+                        android:layout_height="@dimen/btn_height60"
+                        android:background="@color/reset" />
+
+                    <TextView
+                        android:id="@+id/tvGialeitem"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="500k"
+                        android:textColor="@color/mauxamden"
+                        android:textSize="@dimen/btn_size12" />
+
+                    <View
+                        android:layout_width="0.2dp"
+                        android:layout_height="@dimen/btn_height60"
+                        android:background="@color/reset" />
+
+                    <EditText
+                        android:id="@+id/edtTrangthai"
+                        style="@style/MyEditTextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="2.5"
+                        android:drawableRight="@drawable/ic_downedt"
+                        android:gravity="center"
+                        android:textColor="@color/mauxamden"
+                        android:textSize="@dimen/btn_size12" />
+
+                    <View
+                        android:layout_width="0.2dp"
+                        android:layout_height="@dimen/btn_height60"
+                        android:background="@color/reset" />
+
+                    <EditText
+                        android:id="@+id/edtGhichuitem"
+                        style="@style/MyEditTextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/mauxamden"
+                        android:textSize="@dimen/btn_size12" />
+
+                    <View
+                        android:layout_width="0.2dp"
+                        android:layout_height="@dimen/btn_height60"
+                        android:background="@color/reset" />
+
+                    <ImageView
+                        android:id="@+id/imgHanhdongitem"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/pading"
+                        android:src="@drawable/ic_edithanhdong"
+                        android:textColor="@color/mauxamden" />
+
+                    <View
+                        android:layout_width="0.2dp"
+                        android:layout_height="@dimen/btn_height60"
+                        android:background="@color/reset" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</RelativeLayout>

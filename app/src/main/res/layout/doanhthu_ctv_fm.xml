@@ -1,0 +1,210 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.project.shop.lemy.fragment.DoanhthuCtvFm">
+
+    <LinearLayout
+        android:id="@+id/lnChonCtv"
+        android:layout_width="@dimen/btn_width200"
+        android:layout_height="@dimen/btn_height35"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_khung"
+        android:gravity="center">
+
+        <Spinner
+            android:id="@+id/spnChonCtv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rl2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lnChonCtv"
+        android:layout_marginTop="@dimen/btn_margin10">
+
+        <LinearLayout
+            android:id="@+id/lnThoiGian"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/btn_height35"
+            android:layout_weight="1"
+            android:background="@drawable/bg_khung"
+            android:gravity="center">
+
+            <Spinner
+                android:id="@+id/spnThoiGian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnSapXep"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/btn_height35"
+            android:layout_marginLeft="@dimen/btn_margin2"
+            android:layout_marginRight="@dimen/btn_margin2"
+            android:layout_weight="1"
+            android:background="@drawable/bg_khung"
+            android:gravity="center">
+
+            <Spinner
+                android:id="@+id/spnSapXep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></Spinner>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rl4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl2"
+        android:layout_marginTop="@dimen/btn_margin10"
+        android:orientation="horizontal"
+        android:padding="@dimen/pading">
+
+        <LinearLayout
+            android:id="@+id/lnTrangThai"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/btn_height35"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/bg_khung"
+            android:gravity="center">
+
+            <Spinner
+                android:id="@+id/spnTrangThai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></Spinner>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvLoc"
+            android:layout_width="@dimen/btn_height60"
+            android:layout_height="@dimen/btn_height35"
+            android:background="@drawable/bg_mau"
+            android:gravity="center"
+            android:padding="@dimen/btn_pading4"
+            android:text="@string/loc"
+            android:textColor="@color/mautrang" />
+
+        <TextView
+            android:id="@+id/tvReset"
+            android:layout_width="@dimen/btn_height60"
+            android:layout_height="@dimen/btn_height35"
+            android:layout_marginLeft="@dimen/btn_marginRight5"
+            android:background="@drawable/bg_reset"
+            android:gravity="center"
+            android:padding="@dimen/btn_pading4"
+            android:text="@string/reset"
+            android:textColor="#000" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ln5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl4"
+        android:layout_marginTop="@dimen/btn_margin10"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edtSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/btn_margin5"
+            android:layout_weight="1"
+            android:background="@drawable/bg_khung"
+            android:hint="search customer name, fb nickname, phone, product name"
+            android:maxLines="3"
+            android:padding="@dimen/btn_margin5"
+            android:textSize="@dimen/size_chonql" />
+
+        <TextView
+            android:id="@+id/tvSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_height35"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/btn_margin5"
+            android:background="@drawable/bg_search"
+            android:gravity="center"
+            android:padding="@dimen/btn_margin5"
+            android:text="Search"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lnLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_below="@+id/ln5"
+        android:background="@color/mautrang"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvStt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Mã ĐH"
+            android:textColor="@color/mauden"
+            android:textSize="@dimen/them" />
+
+        <TextView
+            android:id="@+id/tvMa"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:text="KH"
+            android:textColor="@color/mauden"
+            android:textSize="@dimen/them" />
+
+        <TextView
+            android:id="@+id/tvTenkh1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="Tổng"
+            android:textColor="@color/mauden"
+            android:textSize="@dimen/them" />
+
+        <TextView
+            android:id="@+id/tvDienthoai1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="Trạng thái"
+            android:textColor="@color/mauden"
+            android:textSize="@dimen/them" />
+
+        <TextView
+            android:id="@+id/tvSP"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="SP"
+            android:textColor="@color/mauden"
+            android:textSize="@dimen/them" />
+    </LinearLayout>
+
+    <include
+        layout="@layout/layout_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lnLayout"></include>
+</RelativeLayout>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lnln"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/tvMsg"
+            android:padding="10dp"
+            android:visibility="gone"
+            android:text="asdas"
+            android:background="@color/Yellowdam"
+            android:textColor="@color/colorRed"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="5dp"
+            android:layout_gravity="center"
+            android:paddingRight="3dp"
+            android:layout_margin="5dp"
+            android:paddingLeft="3dp"
+            android:paddingBottom="5dp"
+            android:background="#549E9D9E"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/textbase"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:id="@+id/tvProductName"
+                android:layout_gravity="center_horizontal"
+                android:text="(SP000) Máy abc "
+                />
+
+            <TextView
+                style="@style/textbase"
+                android:gravity="center"
+                android:textStyle="italic"
+                android:layout_marginTop="2dp"
+                android:textSize="11sp"
+                android:id="@+id/tvMaxSl"
+                android:layout_gravity="center_horizontal"
+                android:text="SL cần chuyển đi: -999"
+                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/rc"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+
+            android:paddingRight="15dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="20dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="15dp"
+            android:paddingBottom="15dp"
+            android:background="#549E9D9E"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/textbase"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:text="Chuyến tới"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/textbase"
+
+                    android:text="Khoang:"
+                    />
+                <TextView
+                    android:layout_marginLeft="4dp"
+                    style="@style/textbase"
+                    android:id="@+id/khoangDen"
+                    android:textColor="@color/text"
+                    android:text="abc"
+                    />
+                <TextView
+                    android:layout_marginLeft="30dp"
+                    android:text="SL:"
+                    style="@style/textbase"/>
+                <EditText
+                    android:textColor="@color/colorRed"
+                    android:layout_marginLeft="3dp"
+                    android:text="0"
+                    android:enabled="false"
+                    android:id="@+id/edSlDen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:text="Hủy"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:id="@+id/btnCancel"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:text="Lưu"
+                    android:layout_gravity="center"
+                    android:id="@+id/btnAskSave"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:text="Xác nhận"
+                    android:visibility="gone"
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/btnDoSave"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:padding="150dp"
+        android:id="@+id/loading"
+        android:visibility="gone"
+        android:background="#5E090907"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_khungvien"
+    android:layout_margin="5dp"
+    android:padding="2dp"
+    android:id="@+id/lnItemSp"
+    android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvNameSp"
+                style="@style/title_sanpham"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+
+                android:padding="@dimen/dp10"
+                android:paddingLeft="@dimen/dp2"
+                android:text="Tên sp" />
+
+
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#f4f3f3"
+            android:orientation="horizontal">
+
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                android:layout_width="0dp"
+                android:id="@+id/searchKhoang"
+                style="@style/tv_13sp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+              />
+
+
+            <ImageView
+                android:id="@+id/tru"
+                android:layout_width="55dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="3dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitEnd"
+                android:src="@drawable/arrow_tru" />
+
+            <EditText
+                android:id="@+id/tvSl"
+                style="@style/tv_13sp"
+                android:layout_width="41dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:gravity="left"
+                android:inputType="number"
+                android:selectAllOnFocus="true"
+
+                android:text="0" />
+
+            <ImageView
+                android:id="@+id/cong"
+                android:layout_width="55dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitStart"
+                android:src="@drawable/arrow_cong" />
+
+        </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTTChon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/addThem"
+            android:gravity="right"
+            android:text="Đã chọn: Khoang A12 - Sl: 4" />
+        <ImageView
+            android:layout_width="@dimen/iconsmall"
+            android:id="@+id/addThem"
+            android:padding="5dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_add"
+            android:layout_height="@dimen/iconsmall" />
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+
+        android:layout_height="500dp"></androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+
+    </LinearLayout>
+

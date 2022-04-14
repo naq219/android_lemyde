@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mautrang"
+    tools:context="com.project.shop.lemy.fragment.OrderProfuctFm">
+
+    <LinearLayout
+        android:id="@+id/ln1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mauxamtrang"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/dp2"
+            android:layout_weight="3"
+            android:background="@drawable/bg_khung"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtOrder"
+                style="@style/tv_15sp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/mautrang"
+                android:hint="Nhập tên sản phẩm"
+                android:maxLines="1"
+                android:padding="@dimen/dp7" />
+
+            <ImageView
+                android:id="@+id/imgReset"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:src="@drawable/ic_huy"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnTrangThai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_khung">
+
+            <TextView
+                android:id="@+id/tvTrangthaiOrder"
+                style="@style/tv_14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_down_tt"
+                android:gravity="center_vertical"
+                android:hint="Trạng thái"
+                android:padding="@dimen/dp7" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <include
+        layout="@layout/layout_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ln1" />
+
+    <ProgressBar
+        android:id="@+id/prBarOrder"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_width50"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/recycleView"
+        android:layout_marginTop="64dp"
+        android:padding="@dimen/btn_margin5"
+        android:visibility="gone" />
+</RelativeLayout>

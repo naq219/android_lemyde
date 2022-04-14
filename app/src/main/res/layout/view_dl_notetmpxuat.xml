@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/mautrang"
+    android:padding="5dp"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/tvOid"
+
+
+        android:layout_gravity="center"
+        android:padding="5dp"
+        style="@style/textbase"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/edNote"
+        android:hint="Nội dung ghi chú"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvChonNgay"
+        android:text="Chọn Ngày"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        style="@style/textbase"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="Lưu"
+        android:id="@+id/btn"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

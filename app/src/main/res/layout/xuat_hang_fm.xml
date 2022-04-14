@@ -1,0 +1,327 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mautrang"
+    tools:context="com.project.shop.lemy.xuatnhapkho.NhapHangFm"
+    tools:ignore="MissingDefaultResource">
+
+    <ScrollView
+        android:id="@+id/scView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="60dp">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/dong_mo"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+
+                android:layout_marginRight="@dimen/dp10"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvChonKhoNh"
+                        style="@style/tv_13sp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp1"
+                        android:layout_marginRight="3dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_khung"
+                        android:drawableRight="@drawable/ic_down_tt"
+                        android:gravity="center_vertical"
+                        android:hint="Chọn kho"
+                        android:padding="@dimen/dp10" />
+
+
+                    <TextView
+                        android:id="@+id/tvChonKieuNhap"
+                        style="@style/tv_13sp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="@dimen/dp1"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_khung"
+                        android:drawableRight="@drawable/ic_down_tt"
+                        android:gravity="center_vertical"
+                        android:hint="Chọn kiểu Xuất"
+                        android:padding="@dimen/dp10" />
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <EditText
+                        android:id="@+id/edtOrderId"
+                        style="@style/tv_13sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_khung"
+                        android:hint="Nhập Order Id"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:padding="@dimen/dp10"
+                        android:visibility="gone" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <EditText
+                        android:id="@+id/edtGhichu"
+                        style="@style/tv_13sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp1"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_khung"
+                        android:hint="Nhập ghi chú"
+
+                        android:maxLines="1"
+                        android:padding="@dimen/dp10" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginRight="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp5"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/title_sanpham"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:text="Sản phẩm" />
+
+                    <ImageView
+                        android:id="@+id/btnThuGon"
+                        android:layout_width="90dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:padding="5dp"
+                        android:src="@drawable/thugon" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/lnSrView"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="@dimen/dp1"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_khung">
+
+                        <androidx.appcompat.widget.SearchView
+                            android:id="@+id/searchChonSanPhamNh"
+                            style="@style/tv_13sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="-10dp"
+                            app:queryBackground="@android:color/transparent"
+                            app:searchIcon="@drawable/ic_search" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/imgBarCode"
+                        android:layout_width="30dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:padding="@dimen/dp2"
+                        android:src="@drawable/ic_barcode" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/scanXacMinh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="#5d44e9"
+                android:gravity="center"
+                android:padding="7dp"
+                android:text="Quét Mã Vạch Xác Minh"
+                android:textColor="#ffffff" />
+
+
+            <RelativeLayout
+                android:id="@+id/rlBarcodeNh"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:background="#E4F0F7"
+                android:padding="1dp"
+                android:visibility="gone">
+
+                <RelativeLayout
+                    android:id="@+id/tmp1"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edAddEan"
+                        style="@style/EditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_toLeftOf="@+id/btnAddEan"
+                        android:background="#ffffff"
+                        android:hint="Nhập EAN"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/btnAddEan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="3dp"
+                        android:padding="3dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_add" />
+                </RelativeLayout>
+
+                <com.journeyapps.barcodescanner.CompoundBarcodeView
+                    android:id="@+id/barCodeView"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_below="@+id/tmp1"
+                    android:layout_margin="1dp"></com.journeyapps.barcodescanner.CompoundBarcodeView>
+
+                <ImageView
+                    android:id="@+id/imgCanceBarCode"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/tmp1"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/dp10"
+                    android:src="@drawable/ic_cancel_barcode" />
+
+                <ImageView
+                    android:id="@+id/btnStart"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/dp3"
+                    android:padding="@dimen/dp10" />
+
+                <ImageView
+                    android:id="@+id/imgFlash"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/tmp1"
+                    android:padding="13dp" />
+            </RelativeLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp1"></androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:layout_marginBottom="@dimen/btn_margin5"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvAddPhieuNhap"
+            style="@style/tv_15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#d0c2244e"
+            android:gravity="center"
+            android:padding="@dimen/btn_margin10"
+            android:text="XUẤT KHO"
+            android:textColor="@color/mautrang" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Tạm lưu"
+            android:id="@+id/cbKeepStock"
+            android:textColor="#FAE6AB" />
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="#b9ffffff"
+        android:id="@+id/prBarNh"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+        <ProgressBar
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/btn_margin5"
+            android:id="@+id/progressBar" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/progressBar"
+            android:layout_below="@+id/progressBar"
+            android:text="Đang xử lý" />
+    </RelativeLayout>
+</RelativeLayout>

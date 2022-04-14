@@ -1,0 +1,229 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlDonHang"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.project.shop.lemy.donhang.DonHangFm">
+
+    <LinearLayout
+        android:id="@+id/ln1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/lnDonhang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/btn_margin2"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/btn_margin2"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_khung">
+
+                    <Spinner
+                        android:visibility="invisible"
+                        android:id="@+id/spnThoigian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/btn_margin2"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_khung">
+
+                    <Spinner
+                        android:id="@+id/spnSapxep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ln2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/btn_margin2"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/btn_margin2"
+                    android:layout_weight="1"
+                    android:id="@+id/lltvShop"
+                    android:background="@drawable/bg_khung">
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="Chọn shop  ▼"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+                        android:id="@+id/tvShop"
+                        android:layout_margin="7dp"
+                        android:textColor="#000000"
+                        style="@style/tv_nhapdonhead" />
+                </LinearLayout>
+
+                <Spinner
+                    android:id="@+id/spnTrangthaidh"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/btn_margin2"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_khung">
+
+                    <Spinner
+                        android:id="@+id/spnNguoiban"
+                        android:layout_width="1dp"
+                        android:visibility="gone"
+                        android:layout_height="1dp"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/tvLocdh"
+                        style="@style/tv_14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_mau"
+                        android:gravity="center"
+                        android:padding="6dp"
+                        android:text="@string/loc"
+                        android:textColor="@color/mautrang" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--<TextView-->
+            <!--android:id="@+id/tvLocdh"-->
+            <!--style="@style/tv_14sp"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_margin="@dimen/btn_margin2"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@drawable/bg_mau"-->
+            <!--android:gravity="center"-->
+            <!--android:padding="6dp"-->
+            <!--android:text="@string/loc"-->
+            <!--android:textColor="@color/mautrang" />-->
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/lnDonhang4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp35"
+        android:layout_below="@+id/ln1"
+        android:layout_marginLeft="@dimen/btn_margin2"
+        android:layout_marginRight="@dimen/btn_margin2"
+        android:layout_marginTop="@dimen/btn_margin5"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/dp2"
+            android:layout_weight="1"
+            android:background="@drawable/bg_khung"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edtSearch"
+                style="@style/tv_14sp"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/mautrang"
+                android:hint="Nhập tìm kiếm"
+                android:padding="@dimen/dp5" />
+
+            <ImageView
+                android:id="@+id/imgForcus"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:src="@drawable/ic_huy"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_khung">
+
+            <Spinner
+                android:id="@+id/spnSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="left"></Spinner>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_below="@+id/lnDonhang4"
+        android:id="@+id/tvThongBaoList"
+        android:visibility="gone"
+        android:textColor="@color/colorRed"
+        android:gravity="center"
+        android:text="Chú ý!! Danh sách SP trong ĐH chỉ gồm những SP có thể xuất! \nVào chi tiết đơn hàng để xem đầy đủ"
+        style="@style/textbase"/>
+
+    <include
+        layout="@layout/layout_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvThongBaoList"
+        android:layout_marginTop="5dp"></include>
+
+
+    <ProgressBar
+        android:id="@+id/prBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_width50"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/recycleView"
+        android:layout_marginTop="64dp"
+        android:padding="@dimen/btn_margin5" />
+</RelativeLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/btn_margin5"
+        android:background="@drawable/bg_item_f5"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvNameSp"
+            style="@style/tv_14sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/dp2"
+            android:layout_weight="2"
+            android:gravity="center|left"
+            android:text="SP-SKU" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#ccc"></View>
+
+        <EditText
+            android:id="@+id/edtSoLuong"
+            style="@style/tv_14sp"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:inputType="number"
+            android:text="1" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#ccc"></View>
+
+        <TextView
+            android:id="@+id/tvGiaTien"
+            style="@style/tv_14sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="1000" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#ccc"></View>
+
+        <TextView
+            android:id="@+id/tvTongTien"
+            style="@style/tv_14sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="1000" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#ccc"></View>
+
+        <ImageView
+            android:id="@+id/imgDeleteDH"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:padding="7dp"
+            android:src="@drawable/ic_deletesms" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:id="@+id/mroot"
+    android:orientation="horizontal">
+
+
+    <TextView
+            android:id="@+id/tv"
+            style="@style/tv_13sp"
+            android:layout_marginLeft="3dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+             android:textColor="@color/colorGreen"
+            android:layout_weight="1"
+            android:gravity="left"
+
+            android:text="SL:xx" />
+
+    <ImageView
+        android:padding="6dp"
+        android:id="@+id/btnDelete"
+        android:src="@drawable/ic_delete_edit"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
+
+
+    </LinearLayout>
+

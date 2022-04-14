@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+ >
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#000000"
+        android:layout_height="250dp"/>
+
+    <com.journeyapps.barcodescanner.CompoundBarcodeView
+        android:id="@+id/barCodeView"
+
+        android:layout_width="match_parent"
+        android:layout_height="250dp"></com.journeyapps.barcodescanner.CompoundBarcodeView>
+
+    <ImageView
+        android:id="@+id/imgFlash"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="13dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/startStop"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="125dp"
+        android:layout_marginRight="40dp"
+
+        android:padding="10dp"
+        android:text="Quét Mã"
+        android:layout_height="wrap_content" />
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
+        android:id="@+id/id01"
+        android:orientation="horizontal"
+        android:layout_below="@+id/barCodeView"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:text="Đường bộ"
+            android:id="@+id/rdDuongBo"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:text="Đường tàu bay"
+            android:id="@+id/rdDuongBay"
+            android:layout_height="wrap_content" />
+
+    </RadioGroup>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:id="@+id/id02"
+        android:layout_below="@+id/id01"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/edmadh"
+            android:inputType="number"
+            android:layout_marginRight="80dp"
+            android:layout_toLeftOf="@+id/btnPush"
+
+            android:hint="Nhập Mã ĐH" />
+        <Button
+            android:layout_width="wrap_content"
+            android:text="Đẩy đơn"
+            android:id="@+id/btnPush"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/id02"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/tvLog"
+            android:text="dhmabc - alsdjao\n dhmaldld- laasd"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+
+</RelativeLayout>

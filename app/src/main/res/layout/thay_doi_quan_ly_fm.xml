@@ -1,0 +1,103 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/btn_margin5"
+    android:background="@color/mautrang"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvThemthaydoiql"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/btn_margin"
+        android:background="@color/mauxamtrang"
+        android:gravity="center|left"
+        android:padding="@dimen/pading"
+        android:text="@string/them"
+        android:textColor="@color/mauxamden"
+        android:textSize="@dimen/them" />
+
+    <TextView
+        android:id="@+id/tvTenthaydoiql"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/edtTenthaydoiql"
+        android:layout_below="@+id/tvThemthaydoiql"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="@dimen/pading"
+        android:text="@string/tenquanly"
+        android:textColor="@color/mauden"
+        android:textSize="@dimen/them" />
+
+    <EditText
+        android:id="@+id/edtTenthaydoiql"
+        style="@style/MyEditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvThemthaydoiql"
+        android:layout_gravity="center"
+        android:layout_toRightOf="@+id/tvTenthaydoiql"
+        android:maxLines="1"
+        android:textColor="@color/mauchuedittext" />
+
+    <TextView
+        android:id="@+id/tvFacebookthaydoiql"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/edtFacebookthaydoiql"
+        android:layout_below="@+id/edtTenthaydoiql"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="@dimen/pading"
+        android:text="@string/facebook"
+        android:textColor="@color/mauden"
+        android:textSize="@dimen/them" />
+
+    <EditText
+        android:id="@+id/edtFacebookthaydoiql"
+        style="@style/MyEditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/edtTenthaydoiql"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/edtTenthaydoiql"
+        android:layout_gravity="center"
+        android:layout_toRightOf="@+id/tvFacebookthaydoiql"
+        android:hint="Nhập facebook"
+        android:maxLines="1"
+        android:textColor="@color/mauchuedittext" />
+
+    <TextView
+        android:id="@+id/tvSua"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height_edt"
+        android:layout_below="@+id/edtFacebookthaydoiql"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/btn_margin1"
+        android:layout_marginLeft="@dimen/btn_marginLeft20"
+        android:background="@drawable/bg_mau"
+        android:gravity="center"
+        android:padding="@dimen/btn_pading9"
+        android:text="@string/sua"
+        android:textColor="@color/mautrang"
+        android:textSize="@dimen/them" />
+
+    <TextView
+        android:id="@+id/tvDsthaydoiql"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height_edt"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/edtFacebookthaydoiql"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/btn_margin1"
+        android:layout_marginRight="@dimen/btn_marginRight2"
+        android:background="@drawable/bg_mau"
+        android:gravity="center"
+        android:padding="@dimen/pading"
+        android:text="@string/danhsachql"
+        android:textColor="@color/mautrang"
+        android:textSize="@dimen/them" />
+</RelativeLayout>

@@ -1,0 +1,131 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+
+        android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:inputType="numberDecimal"
+            android:text="Nhập Khối lượng hoặc kích thước"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="50dp"
+            android:src="@drawable/ic_cancel"
+            android:scaleType="fitEnd"
+            android:layout_alignParentRight="true"
+            android:id="@+id/vCancel"
+            android:layout_centerVertical="true"
+            android:layout_height="20dp" />
+    </RelativeLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:minWidth="100dp"
+            android:layout_margin="10dp"
+            android:inputType="numberDecimal"
+            android:hint="Nhập Khối lượng"
+            android:id="@+id/ed"
+            style="@style/MyEditTextStyle"
+            android:layout_gravity="center_horizontal"
+
+            android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:hint="X"
+                    android:id="@+id/chieu1"
+                    android:inputType="numberDecimal"
+                    android:minWidth="150dp"
+                    android:imeOptions="actionNext"
+                    style="@style/MyEditTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/chieu2"
+                    android:minWidth="150dp"
+                    android:hint="Y"
+                    android:imeOptions="actionNext"
+                    style="@style/MyEditTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/chieu3"
+                    android:minWidth="150dp"
+                    android:layout_margin="10dp"
+                    android:hint="Z"
+                    style="@style/MyEditTextStyle"
+
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="#03A9F4"
+                    android:text="200g"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="#03A9F4"
+                    android:text="500g"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="#03A9F4"
+                    android:text="1000g"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="#03A9F4"
+                    android:text="10000g"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_weight="2"
+                android:layout_marginLeft="20dp"
+                android:background="#0BA4F5"
+                android:layout_gravity="center_horizontal"
+                android:text="Cập nhật EAN"
+                android:id="@+id/btnSubmit"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>

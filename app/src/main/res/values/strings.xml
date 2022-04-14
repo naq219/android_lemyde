@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">LeMy</string>
+    <string name="name_activity_nhapdon">Nhập đơn hàng</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="hello_blank_fragment">Hello Blank Fragment</string>
+    <string name="them">Thêm</string>
+    <string name="tensp">Tên sản phẩm</string>
+    <string name="masku">Mã SKU</string>
+    <string name="giavon">Giá Buôn</string>
+    <string name="giabanbuon">Giá bán buôn</string>
+    <string name="giabanle">Giá bán lẻ</string>
+    <string name="khoiluong">Khối lượng(gram)</string>
+    <string name="linkanh">Link ảnh</string>
+    <string name="gioithieu">Giới thiệu sản phẩm</string>
+    <string name="pagelink">Page link</string>
+    <string name="dssanpham">Danh sách Sản phẩm</string>
+    <string name="tenshop">Tên shop</string>
+    <string name="facebook">Facebook</string>
+    <string name="chonql">Chọn quản lý</string>
+    <string name="dsshop">Danh sách shop</string>
+    <string name="tenkh">Tên khách hàng</string>
+    <string name="nickfb">Nick Facebook:</string>
+    <string name="nhomkh">Nhóm KH</string>
+    <string name="dienthoai">Điện Thoại</string>
+    <string name="khuvuc">Khu vực</string>
+    <string name="diachi">Địa chỉ</string>
+    <string name="shop">Shop</string>
+    <string name="fbid">Facebook ID:</string>
+    <string name="ghichu">Ghi chú</string>
+    <string name="dskh">Danh sách khách hàng</string>
+    <string name="tenhoacsdt">Tên hoặc SĐT:</string>
+    <string name="loc">Lọc</string>
+    <string name="reset">Reset</string>
+    <string name="thang">#</string>
+    <string name="makh">Mã KH</string>
+    <string name="tongso">Tổng số: </string>
+    <string name="hinhanh">Hình ảnh</string>
+    <string name="gia">Giá</string>
+    <string name="tenquanly">Tên quản lý</string>
+    <string name="tru">-</string>
+    <string name="gianhap">Giá nhập</string>
+    <string name="giabuon">Giá buôn</string>
+    <string name="giale">Giá lẻ</string>
+    <string name="trangthai">Trạng thái</string>
+    <string name="hanhdong">Hành động</string>
+    <string name="sua">Sửa</string>
+    <string name="danhsachql">Danh sách quản lý</string>
+
+    <string name="title_activity_update_sanpham">UpdateSanphamActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="checkbox_null">Chưa chọn người nhận Sms</string>
+    <string name="exit_question">Bạn chắc chắn muốn thoát ứng dụng?</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="title_activity_edit_product_xn">Sửa Sản Phẩm nhập xuất</string>
+    <string name="title_activity_update_ean">UpdateEanActivity</string>
+    <string name="title_activity_tim_sp_ean">TimSpEan</string>
+    <string name="title_activity_xuat_kho">XuatKhoActivity</string>
+    <string name="title_activity_muti_scan">MutiScanActivity</string>
+    <string name="title_activity_smart_push_vc">SmartPushVC</string>
+    <string name="title_activity_main_bottom">MainBottomActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>

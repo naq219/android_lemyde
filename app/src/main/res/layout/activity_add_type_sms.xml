@@ -1,0 +1,110 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/xamtrang"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:weightSum="5">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/tool_bar"></include>
+
+    <LinearLayout
+        android:id="@+id/lnType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/tv_15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Chủ để Sms: "
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/edtChuDe"
+            style="@style/tv_14sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp5"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/bg_khung"
+            android:hint="Chủ đề tin nhắn"
+            android:padding="10dp"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lnNoiDung"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lnType"
+        android:layout_marginBottom="60dp"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/tv_15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="@dimen/dp5"
+            android:text="Nội dung Sms: "
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/edtNoiDung"
+            style="@style/tv_14sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/bg_khung"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:padding="@dimen/dp3"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lnButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/dp10"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/btnHuy"
+            style="@style/tv_18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp5"
+            android:layout_weight="1"
+            android:background="@drawable/bg_edit"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Hủy"
+            android:textColor="@color/mautrang" />
+
+        <TextView
+            android:id="@+id/btnOKSms"
+            style="@style/tv_18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp5"
+            android:layout_weight="1"
+            android:background="@drawable/bg_save"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Ok"
+            android:textColor="@color/mautrang" />
+    </LinearLayout>
+</RelativeLayout>

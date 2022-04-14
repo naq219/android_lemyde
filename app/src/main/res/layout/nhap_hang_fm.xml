@@ -1,0 +1,259 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mautrang"
+    tools:context="com.project.shop.lemy.xuatnhapkho.NhapHangFm"
+    tools:ignore="MissingDefaultResource">
+
+    <ScrollView
+        android:layout_marginTop="10dp"
+        android:id="@+id/scView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/dong_mo"
+            android:layout_marginLeft="@dimen/dp10"
+
+            android:layout_marginRight="@dimen/dp10"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:id="@+id/tvChonKhoNh"
+                        style="@style/tv_13sp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp1"
+                        android:background="@drawable/bg_khung"
+                        android:drawableRight="@drawable/ic_down_tt"
+                        android:gravity="center_vertical"
+                        android:hint="Chọn kho"
+                        android:layout_marginRight="3dp"
+                        android:padding="@dimen/dp10" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_marginLeft="3dp"
+                        android:id="@+id/tvChonKieuNhap"
+                        style="@style/tv_13sp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp1"
+                        android:background="@drawable/bg_khung"
+                        android:drawableRight="@drawable/ic_down_tt"
+                        android:gravity="center_vertical"
+                        android:hint="Chọn kiểu Nhập"
+                        android:padding="@dimen/dp10" />
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/edtOrderId"
+                    style="@style/tv_13sp"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_khung"
+                    android:hint="Nhập Order Id"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:padding="@dimen/dp10" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/edtGhichu"
+                    style="@style/tv_13sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp1"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_khung"
+                    android:hint="Nhập ghi chú"
+
+                    android:maxLines="1"
+                    android:padding="@dimen/dp10" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginRight="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp5"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/title_sanpham"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sản phẩm" />
+
+                    <ImageView
+                        android:padding="5dp"
+                        android:id="@+id/btnThuGon"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/thugon"
+                        android:layout_width="90dp"
+                        android:layout_height="30dp" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/lnSrView"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="@dimen/dp1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_khung">
+
+                        <androidx.appcompat.widget.SearchView
+                            android:id="@+id/searchChonSanPhamNh"
+                            style="@style/tv_13sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="-10dp"
+                            app:queryBackground="@android:color/transparent"
+                            app:searchIcon="@drawable/ic_search" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/imgBarCode"
+                        android:layout_width="30dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:padding="@dimen/dp2"
+                        android:src="@drawable/ic_barcode" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlBarcodeNh"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp5"
+                android:layout_marginTop="@dimen/dp5"
+                android:visibility="gone">
+
+                <com.journeyapps.barcodescanner.CompoundBarcodeView
+                    android:id="@+id/barCodeView"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"></com.journeyapps.barcodescanner.CompoundBarcodeView>
+
+                <ImageView
+                    android:id="@+id/imgCanceBarCode"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/dp10"
+                    android:src="@drawable/ic_cancel_barcode" />
+
+                <ImageView
+                    android:id="@+id/btnStart"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="@dimen/dp3"
+                    android:padding="@dimen/dp10" />
+
+                <ImageView
+                    android:id="@+id/imgFlash"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="13dp" />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp1"></androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvAddPhieuNhap"
+        style="@style/tv_15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/btn_margin5"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:background="@drawable/bg_update_ttdh"
+        android:gravity="center"
+        android:padding="@dimen/btn_margin10"
+        android:text="Thêm phiếu nhập"
+        android:textColor="@color/mautrang" />
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="#b9ffffff"
+        android:id="@+id/prBarNh"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+        <ProgressBar
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/btn_margin5"
+            android:id="@+id/progressBar" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/progressBar"
+            android:layout_below="@+id/progressBar"
+            android:text="Đang xử lý" />
+    </RelativeLayout>
+</RelativeLayout>

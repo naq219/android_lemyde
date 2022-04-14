@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/edNoteOld"
+        android:textSize="14sp"
+        style="@style/MyEditTextStyle"
+        android:hint="Ghi chú đơn cũ"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/edNote"
+        android:textSize="14sp"
+        style="@style/MyEditTextStyle"
+        android:layout_marginTop="5dp"
+        android:hint="Ghi chú đơn mới"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/tvMoneySplit"
+        android:textSize="14sp"
+
+        android:layout_marginTop="5dp"
+        android:hint="Ghi chú đơn mới"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:id="@+id/edMoney"
+        style="@style/MyEditTextStyle"
+        android:textSize="16sp"
+        android:hint="Nhập tiền đã nhận"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

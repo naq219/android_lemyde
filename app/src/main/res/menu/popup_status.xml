@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/itConHang"
+        android:title="Còn hàng" />
+    <item
+        android:id="@+id/itNgungBan"
+        android:title="Ngừng bán" />
+    <item
+        android:id="@+id/itOrder"
+        android:title="Order" />
+    <item
+        android:id="@+id/itChuaRo"
+        android:title="Chưa rõ" />
+</menu>

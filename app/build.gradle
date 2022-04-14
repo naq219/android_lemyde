@@ -1,0 +1,133 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.lemyshop3"
+        minSdk 21
+        targetSdk 23
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        seed {
+            storeFile file('keyseed_123123.jks')
+            storePassword '123123'
+            keyAlias = 'key0'
+            keyPassword '123123'
+        }
+    }
+
+    buildTypes {
+
+        debug {
+            applicationIdSuffix '.debug'
+            buildConfigField "String", "url_test", "\"http://139.162.12.227:34445/api\""
+            buildConfigField "String", "url", "\"http://apim.lemyde.com/api\""
+            buildConfigField "String", "url_vc", "\"http://api.lemyde.com/api/order\""
+            buildConfigField "String", "db_name", "\"crm_test\""
+            buildConfigField "String", "db_nhacviec", "\"nhacviec_test\""
+
+            buildConfigField "String", "url_in", "\"http://crm.lemyde.com/admin/order/printbill/\""
+            buildConfigField "String", "url_printvc", "\"http://crm.lemyde.com/admin/print/v3?id=\""
+            buildConfigField "String", "url2", "\"http://test-apiv2.lemyde.com/api/\""
+
+        }
+
+
+        release {
+
+            buildConfigField "String", "url", "\"http://apim.lemyde.com/api\""
+            buildConfigField "String", "url_vc", "\"http://api.lemyde.com/api/order\""
+            buildConfigField "String", "db_name", "\"crm\""
+            buildConfigField "String", "db_nhacviec", "\"nhacviec\""
+            buildConfigField "String", "url_in", "\"http://crm.lemyde.com/admin/order/printbill/\""
+            buildConfigField "String", "url_printvc", "\"http://crm.lemyde.com/admin/print/v3?id=\""
+            buildConfigField "String", "url2", "\"http://apiv2.lemyde.com/api/\""
+
+
+            debuggable true
+            signingConfig signingConfigs.seed
+
+
+        }
+    }
+
+    productFlavors {
+        nhapdon {
+
+            applicationId "com.lemyshop.nhapdon"
+            versionCode 40
+
+        }
+
+        crm {
+
+            flavorDimensions "default"
+            applicationId "com.lemyshop3"
+            versionCode 77
+
+        }
+
+        crm_test {
+            flavorDimensions "default"
+            applicationId "com.lemyshop.test"
+            versionCode 71
+
+        }
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //implementation 'androidx.appcompat:appcompat:1.1.0'
+    //implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.telpoo.frame:telpooLitle:2.0.7'
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
+    implementation 'com.thoughtbot:expandablerecyclerview:1.3'
+    //implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.zxing:core:3.2.0'
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+    implementation 'me.dm7.barcodescanner:zxing:1.8.4'
+    //implementation 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'com.toptoche.searchablespinner:searchablespinnerlibrary:1.3.1'
+    implementation 'com.google.firebase:firebase-crash:16.2.1'
+    implementation 'org.jsoup:jsoup:1.12.1'
+    implementation 'com.github.naq219:telpooupdater:1.0'
+    implementation 'com.github.naq219:telpoo2lib:1.8'
+    implementation 'com.karumi:dexter:6.2.1'
+    //implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'com.nabinbhandari.android:permissions:3.8'
+
+//    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+//    implementation 'androidx.navigation:navigation-fragment:2.3.0'
+//    implementation 'androidx.navigation:navigation-ui:2.3.0'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
+    implementation 'lib.kashif:folderpicker:2.4'
+    implementation 'io.sentry:sentry-android:5.4.0'
+    implementation "ch.acra:acra-dialog:5.8.4"
+    implementation("com.squareup.okhttp3:okhttp:4.9.3")
+
+
+
+
+
+
+}
+

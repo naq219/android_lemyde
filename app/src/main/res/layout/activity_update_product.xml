@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.project.shop.lemy.activity.UpdateProductActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mautrang"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTensp"
+            style="@style/tv_18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/mauxanhduong2"
+            android:gravity="center|left"
+            android:padding="@dimen/btn_SizeedtText"
+            android:paddingLeft="@dimen/btn_pading9"
+            android:text="@string/tensp"
+            android:textColor="@color/mautrang"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvGiavon"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:padding="@dimen/btn_pading9"
+                android:text="@string/giavon"
+                android:textColor="@color/mauxamden"
+                android:textSize="@dimen/them" />
+
+            <TextView
+                android:id="@+id/tvGiavonedt"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:maxLines="4"
+                android:padding="@dimen/btn_pading9"
+                android:scrollbars="vertical"
+                android:textColor="#AD1457"
+                android:textSize="@dimen/them" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvGiabuon"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:padding="@dimen/btn_pading9"
+                android:text="@string/giabuon"
+                android:textColor="@color/mauxamden"
+                android:textSize="@dimen/them" />
+
+            <TextView
+                android:id="@+id/tvGiabuonedt"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:maxLines="4"
+                android:padding="@dimen/btn_pading9"
+                android:scrollbars="vertical"
+                android:textColor="#00695C"
+                android:textSize="@dimen/them" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvGiale"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:padding="@dimen/btn_pading9"
+                android:text="@string/giale"
+                android:textColor="@color/mauxamden"
+                android:textSize="@dimen/them" />
+
+            <TextView
+                android:id="@+id/tvGialeedt"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:maxLines="4"
+                android:padding="@dimen/btn_pading9"
+                android:scrollbars="vertical"
+                android:textColor="#E65100"
+                android:textSize="@dimen/them" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTrangthai"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:padding="@dimen/btn_pading9"
+                android:text="@string/trangthai"
+                android:textColor="@color/mauxamden"
+                android:textSize="@dimen/them" />
+
+            <TextView
+                android:id="@+id/tvTrangthaisp"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:maxLines="4"
+                android:padding="@dimen/btn_pading9"
+                android:scrollbars="vertical"
+                android:textColor="@color/mauxamden"
+                android:textSize="@dimen/them" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvHuy"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_pading9"
+                android:layout_weight="1"
+                android:background="@drawable/bg_del"
+                android:gravity="center"
+                android:padding="@dimen/btn_marginRight10"
+                android:text="Hủy"
+                android:textColor="@color/mautrang"
+                android:textSize="@dimen/them" />
+
+            <TextView
+                android:id="@+id/tvLuu"
+                style="@style/tv_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_pading9"
+                android:layout_weight="1"
+                android:background="@drawable/bg_save"
+                android:gravity="center"
+                android:padding="@dimen/btn_marginRight10"
+                android:text="Lưu"
+                android:textColor="@color/mautrang"
+                android:textSize="@dimen/them" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

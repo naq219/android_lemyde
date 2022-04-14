@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#43b05c</color>
+    <color name="colorPrimaryDark">#43b05c</color>
+    <color name="colorAccent">#43b05c</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="recycle">#eeeeee</color>
+
+    //giá bán
+    <color name="gia1">#AD1457</color>
+    <color name="gia2">#00695C</color>
+    <color name="gia3">#E65100</color>
+    <color name="giatien">#AA0000</color>
+    //text
+    <color name="text">#0000FF</color>
+    <color name="text1">#2278d4</color>
+
+    //nen
+    <color name="dg_vien">#BBBBBB</color>
+    <color name="bg_nen">#eeeeee</color>
+    <color name="bg_edtext">#F5F5F5</color>
+    <color name="nen">#F5F5F5</color>
+
+
+    <color name="mauxamden">#212121</color>
+    <color name="mauden">#000000</color>
+    <color name="maudenone">#222222</color>
+    <color name="maudennhat">#303030</color>
+
+    <color name="mautrang">#FFFFFF</color>
+    <color name="mauxamtrang">#F5F5F5</color>
+    <color name="mauchuedittext">#555555</color>
+    <color name="reset">#DDDDDD</color>
+    <color name="resetsp">#00695C</color>
+    <color name="mau_nen_chung">#303030</color>
+    <color name="mau_cardview_chung">#00695C</color>
+    <color name="mau_view_chung">#3E2723</color>
+    <color name="mau_chung">#fff</color>
+    <color name="navi">#222D32</color>
+
+    //mau xanh
+    <color name="xanhdatroi">#007FFF</color>
+    <color name="xanhlam">#0000FF</color>
+    <color name="xanhberin">#7FFFD4</color>
+    <color name="xanh_men_ngoc">#ACE1AF</color>
+    <color name="xam_nen">#eeeeee</color>
+    <color name="xamtrang">#fafafa</color>
+    <color name="xam_navigation">#EEE8AA</color>
+    <color name="itemtext">#f7f7d5</color>
+    <color name="mauvang">#FFFF00</color>
+    <color name="mauxanhduong">#4dc1ae</color>
+    <color name="mauxanhduong2">#00a885</color>
+    <color name="backgound_app">#88c8ea</color>
+    <color name="Gray">#e2e1e1</color>
+    <color name="colorDimGray">#f1eeee</color>
+    <color name="transparent">#00000000</color>
+    <color name="colorGreen">#00FF00</color>
+    <color name="colorGreenYellow">#ADFF2F</color>
+    <color name="colorYellow">#FFFF00</color>
+    <color name="Yellowdam">#ffb71c</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="maunau">#bda653</color>
+
+    <!-- Screens background color-->
+    <color name="bg_screen1">#f64c73</color>
+    <color name="bg_screen2">#20d2bb</color>
+    <color name="xamxanh">#9FB6CD</color>
+    <color name="bg_screen3">#3395ff</color>
+    <color name="bg_screen4">#c873f4</color>
+    <color name="slna">#da2c8f31</color>
+    <color name="mautim">#783293</color>
+
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen1">#d1395c</color>
+    <color name="dot_dark_screen2">#14a895</color>
+    <color name="dot_dark_screen3">#2278d4</color>
+    <color name="dot_dark_screen4">#a854d4</color>
+
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#f98da5</color>
+    <color name="dot_light_screen2">#8cf9eb</color>
+    <color name="dot_light_screen3">#93c6fd</color>
+    <color name="dot_light_screen4">#e4b5fc</color>
+    <color name="den">#000000</color>
+    <color name="dennhat">#666666</color>
+
+    <color name="add_card">#03a12d</color>
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+        <item>@color/dot_light_screen3</item>
+        <item>@color/dot_light_screen4</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen3</item>
+        <item>@color/dot_dark_screen4</item>
+    </array>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="colorone">#2C3B41</color>
+    <color name="colortwo">#2c3b43</color>
+    <color name="colortext">#f1f1f1</color>
+
+    <color name="hangve_1phan">#FF5E07</color>
+
+
+
+</resources>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.project.shop.lemy">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:name=".MyApplication"
+
+        android:icon="@drawable/ic_launcher1"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_launcher1"
+        android:supportsRtl="true"
+        android:allowBackup="false"
+        android:theme="@style/AppTheme"
+
+        tools:replace="android:allowBackup">
+
+        <meta-data android:name="io.sentry.dsn" android:value="https://2affd1ea4410447fa489af2d2822900e@o93689.ingest.sentry.io/6069679" />
+        <!-- Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+           We recommend adjusting this value in production. -->
+        <meta-data android:name="io.sentry.traces.sample-rate" android:value="1.0" />
+
+
+        <activity android:name=".nhacviec.NhacViecActivity" />
+        <activity
+            android:name=".sanpham.DetailProductActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".chucnangkhac.SuaCodGhtkActivity" />
+        <activity android:name=".activity.IncludeFmActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".donhang.ChiTietDonHangActivity"
+            android:theme="@style/AppThemeSwipeBack"
+            android:windowSoftInputMode="adjustPan" >
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name=".sanpham.ChiTietSanPhamActivity"
+            android:theme="@style/AppThemeSwipeBack"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activity.UpdateProductActivity"
+            android:theme="@style/NoTitleDialog"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".donhang.EditDonHangActivity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activity.PrintActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".smskhachhang.ItemKhachHangShopActivity" />
+        <activity
+            android:name=".donhang.ProcessDonHangActivity"
+            android:resizeableActivity="true"
+            android:theme="@style/AppThemeSwipeBack"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".smskhachhang.AddTypeSmsActivity" />
+        <activity
+            android:name=".xuatnhapkho.EditProductXNActivity"
+            android:label="@string/title_activity_edit_product_xn"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".xuatnhapkho.TimSpEan"
+            android:label="@string/title_activity_tim_sp_ean"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".xuatnhapkho.XuatKhoActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_xuat_kho"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".helper.MutiScanActivity"
+            android:label="@string/title_activity_muti_scan"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".donhang.PrintActivity"
+            android:label="Print"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".LoginActivity" />
+    </application>
+
+</manifest>

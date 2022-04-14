@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/ln1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_width50"
+        android:gravity="center_vertical">
+
+        <TextView
+            style="@style/tv_18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/btn_margin5"
+            android:text="Chi tiết đơn hàng" />
+
+        <TextView
+            style="@style/tv_18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/btn_margin5"
+            android:text="DHM9" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ln45"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ln1"
+        android:background="@drawable/bg_khung"
+        android:orientation="horizontal"
+        android:padding="1dp">
+
+        <LinearLayout
+            android:id="@+id/ln2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="@dimen/pading">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width50"
+                android:orientation="horizontal"
+                android:padding="@dimen/pading">
+
+                <TextView
+                    style="@style/tv_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Mã đơn hàng: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" DHM9"
+                    android:textSize="@dimen/them"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width50"
+                android:orientation="horizontal"
+                android:padding="@dimen/pading">
+
+                <TextView
+                    style="@style/tv_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Mã vận đơn: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" Chưa có"
+                    android:textSize="@dimen/them"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width50"
+                android:orientation="horizontal"
+                android:padding="@dimen/pading">
+
+                <TextView
+                    style="@style/tv_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Tên KH: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" Lò Văn Son"
+                    android:textSize="@dimen/them"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width50"
+                android:orientation="horizontal"
+                android:padding="@dimen/pading">
+
+                <TextView
+                    style="@style/tv_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Trạng thái: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" Bị hủy"
+                    android:textSize="@dimen/them"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width50"
+                android:orientation="horizontal"
+                android:padding="@dimen/pading">
+
+                <TextView
+                    style="@style/tv_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Freeship: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" 0"
+                    android:textSize="@dimen/them"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width50"
+                android:orientation="horizontal"
+                android:padding="@dimen/pading">
+
+                <TextView
+                    style="@style/tv_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Người tạo: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" Anh Quế"
+                    android:textSize="@dimen/them"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width50"
+                android:orientation="horizontal"
+                android:padding="@dimen/pading">
+
+                <TextView
+                    style="@style/tv_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Ghi chú: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" ozawa"
+                    android:textSize="@dimen/them"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ln3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/ln2"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width50"
+                android:orientation="horizontal"
+                android:padding="@dimen/pading">
+
+                <TextView
+                    style="@style/tv_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Ngày: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" 29/01"
+                    android:textSize="@dimen/them"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width50"
+                android:orientation="horizontal"
+                android:padding="@dimen/pading">
+
+                <TextView
+                    style="@style/tv_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="PTTT: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" Tiền Măt"
+                    android:textSize="@dimen/them"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width50"
+                android:orientation="horizontal"
+                android:padding="@dimen/pading">
+
+                <TextView
+                    style="@style/tv_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Tổng tiền: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" 2000k"
+                    android:textSize="@dimen/them"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width50"
+                android:orientation="horizontal"
+                android:padding="@dimen/pading">
+
+                <TextView
+                    style="@style/tv_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Thu thêm: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" 0k"
+                    android:textSize="@dimen/them"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width50"
+                android:orientation="horizontal"
+                android:padding="@dimen/pading">
+
+                <TextView
+                    style="@style/tv_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Đã nhận: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" 0k"
+                    android:textSize="@dimen/them"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width50"
+                android:orientation="horizontal"
+                android:padding="@dimen/pading">
+
+                <TextView
+                    style="@style/tv_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Shop: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" Shop ozawa"
+                    android:textSize="@dimen/them"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width50"
+                android:orientation="horizontal"
+                android:padding="@dimen/pading">
+
+                <TextView
+                    style="@style/tv_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Phí ship: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" 0k"
+                    android:textSize="@dimen/them"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ln5"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/ln45"
+        android:background="@drawable/bg_khung"
+        android:orientation="horizontal"
+        android:padding="1dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Tên SP"
+            android:textColor="@color/maudennhat"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Số lượng"
+            android:textColor="@color/maudennhat"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Tổng"
+            android:textColor="@color/maudennhat"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcSanPham"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/ln5">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="@dimen/btn_height60"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/rcSanPham"
+        android:orientation="horizontal"
+        android:padding="@dimen/pading">
+
+        <TextView
+            android:id="@+id/tvSendSMS"
+            style="@style/tv_18sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/btn_margin5"
+            android:layout_weight="1"
+            android:background="@drawable/bg_search"
+            android:gravity="center"
+            android:padding="@dimen/btn_margin5"
+            android:text="Send SMS"
+            android:textColor="@color/mautrang" />
+
+        <TextView
+            android:id="@+id/tvClose"
+            style="@style/tv_18sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tvSendSMS"
+            android:layout_margin="@dimen/btn_margin5"
+            android:layout_weight="1"
+            android:background="@drawable/bg_mau"
+            android:gravity="center"
+            android:padding="@dimen/btn_margin5"
+            android:text="Close"
+            android:textColor="@color/mautrang" />
+    </LinearLayout>
+
+</RelativeLayout>
