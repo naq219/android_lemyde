@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.project.shop.lemy.BaseFragment;
 import com.project.shop.lemy.MyActivity;
 import com.project.shop.lemy.R;
 import com.project.shop.lemy.SwipeBackActivity;
@@ -16,6 +17,8 @@ import com.project.shop.lemy.SwipeBackActivity;
  * @deprecated
  */
 public class DetailProductActivity extends SwipeBackActivity {
+    public static final int REQUEST_CODE_GETIMAGE=123;
+    public static BaseFragment currentFragmentRequestImage=null;
 
     public static void startActivity(Activity activity,String productID) {
         Intent intent= new Intent(activity,DetailProductActivity.class);
@@ -29,6 +32,14 @@ public class DetailProductActivity extends SwipeBackActivity {
         if (newSpString!=null)
             intent.putExtra(SPFm.OBJ_PARAM_ADDNEW,newSpString);
         activity.startActivity(intent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_GETIMAGE&&currentFragmentRequestImage!=null) {
+            currentFragmentRequestImage.onActivityResult(requestCode,resultCode,data);
+        }
     }
 
     @Override

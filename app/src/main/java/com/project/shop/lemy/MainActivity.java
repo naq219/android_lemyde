@@ -41,8 +41,6 @@ import java.util.ArrayList;
 import io.sentry.Sentry;
 
 public class MainActivity extends MainActivityLayout {
-    public static final int REQUEST_CODE_GETIMAGE=123;
-    public static BaseFragment currentFragmentRequestImage=null;
 
 
     DrawerLayout drawer;
@@ -103,7 +101,6 @@ public class MainActivity extends MainActivityLayout {
         //ChiTietDonHangActivity.startActivity(MainActivity.this,"22203");
         //startActivity(new Intent(this, AdminSettingActivity.class));
 
-        replaceFragment(SPFm.newInstance("9",null));
 
     }
 
@@ -177,8 +174,6 @@ public class MainActivity extends MainActivityLayout {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_GETIMAGE&&currentFragmentRequestImage!=null) {
-            currentFragmentRequestImage.onActivityResult(requestCode,resultCode,data);
-        }
+
     }
 }

@@ -14,4 +14,8 @@ public class MyUrl2 {
     public static final String tach_orderAuto="tach_orderauto/?";
     public static final String stock_addorchange="stock/addorchange/";
     public static final String orderSearch="order/search/";
+    public static String getRealUrlImage(String img){
+        return "http://file.lemyde.com/uploads/"+img;
+    }
+
 }

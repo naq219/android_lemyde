@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,10 +24,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.lemy.telpoo2lib.model.Model;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.project.shop.lemy.BaseFragment;
 import com.project.shop.lemy.MainActivity;
 import com.project.shop.lemy.MyActivity;
+import com.project.shop.lemy.Net.MyUrl2;
 import com.project.shop.lemy.R;
 import com.project.shop.lemy.Task.TaskGeneral;
 import com.project.shop.lemy.Task.TaskNet;
@@ -42,6 +45,7 @@ import org.json.JSONException;
 public class SPFmView extends BaseFragment  {
     public static final String OBJ_PARAM_ID = "param2";
     public static final String OBJ_PARAM_ADDNEW =  "OBJ_PARAM_ADDNEW";
+    DisplayImageOptions optionLoadImage= new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.img_loading).showImageOnFail(R.drawable.ic_hinhanhsp).build();
 
     protected String productId =null;
     protected TextView tvAddSp;
@@ -56,6 +60,7 @@ public class SPFmView extends BaseFragment  {
     View tvUpdateTimeDangBai, btnDownload, btnUpload;
     private TextView tvMaDh,tvCtvSuggest,tvBuonSuggest;
     private LinearLayout rootImage;
+    JSONArray jaImage=null;
     protected SPFmView() {
     }
 
@@ -302,13 +307,14 @@ public class SPFmView extends BaseFragment  {
     }
 
     protected void loadInfo() {
-        if (productId==null) return;
+        rootImage.removeAllViews();
+        if (productId == null) return;
 
         showProgressDialog();
-        String sql= "SELECT * FROM ;::;.products p where id=%s ORDER BY p.id DESC LIMIT 10";
-        sql=String.format(sql,productId);
+        String sql = "SELECT * FROM ;::;.products p where id=%s ORDER BY p.id DESC LIMIT 10";
+        sql = String.format(sql, productId);
 
-        TaskGeneral.exeTaskGetApi(new Model(){
+        TaskGeneral.exeTaskGetApi(new Model() {
             @Override
             public void onSuccess(int taskType, Object data, String msg, Integer queue) {
                 super.onSuccess(taskType, data, msg, queue);
@@ -316,35 +322,40 @@ public class SPFmView extends BaseFragment  {
                 JSONArray ja = (JSONArray) data;
                 ProductObj oj = new ProductObj(ja.optJSONObject(0));
                 edtTensp.setText(oj.getName());
-                edGiaNhap.setText(""+oj.getGiaNhap());
+                edGiaNhap.setText("" + oj.getGiaNhap());
 
-                edGiaBan.setText(""+oj.getGiaBanLe());
-                edGiaBuon.setText(""+oj.getGiaBuon());
-                edGiaBuonSi.setText(""+oj.getGiaBuonSi());
+                edGiaBan.setText("" + oj.getGiaBanLe());
+                edGiaBuon.setText("" + oj.getGiaBuon());
+                edGiaBuonSi.setText("" + oj.getGiaBuonSi());
                 edtLinkanh.setText(oj.getImage());
                 edtLinkanh.setText(oj.getImage());
                 edtGioithieu.setText(oj.getAsString(ProductObj.introduction));
-                String ean=""+oj.getAsString("ean"); if (ean.toLowerCase().equals("null")) ean="";
+                String ean = "" + oj.getAsString("ean");
+                if (ean.toLowerCase().equals("null")) ean = "";
                 edEan.setText(ean);
                 edtGhiChu.setText(oj.getAsString(ProductObj.note));
-                tvMaDh.setText("(SP"+oj.getId()+")");
+                tvMaDh.setText("(SP" + oj.getId() + ")");
 
-                if(oj.isLimit()){
+                if (oj.isLimit()) {
                     cbChanBan.setChecked(true);
-                }
-                else cbChanBan.setChecked(false);
+                } else cbChanBan.setChecked(false);
 
                 try {
-                    String tmp1=oj.getAsString("images");
-                    if (tmp1==null) return;
-                    JSONArray jaImage = new JSONArray(tmp1);
-                    if (jaImage==null) return;
+                    String tmp1 = oj.getAsString("images");
+                    if (tmp1 == null) return;
+                    jaImage = new JSONArray(tmp1);
+                    if (jaImage == null) return;
                     for (int i = 0; i < jaImage.length(); i++) {
                         ImageView iv = new ImageView(getActivity());
-                        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+//                        android:layout_marginTop="5dp"
+//                        android:layout_gravity="center_horizontal"
+                        lp.gravity = Gravity.CENTER_HORIZONTAL;
+                        lp.topMargin = 5;
+
                         iv.setLayoutParams(lp);
                         rootImage.addView(iv);
-                        ImageLoader.getInstance().displayImage(jaImage.optString(i),iv);
+                        ImageLoader.getInstance().displayImage(MyUrl2.getRealUrlImage(jaImage.optString(i)), iv, optionLoadImage);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -356,9 +367,8 @@ public class SPFmView extends BaseFragment  {
             public void onFail(int taskType, String msg, Integer queue) {
                 super.onFail(taskType, msg, queue);
                 closeProgressDialog();
-                Mlog.D("sds"+msg);
+                Mlog.D("sds" + msg);
             }
-        },getContext(),sql);
-
+        }, getContext(), sql);
+        }
     }
-}

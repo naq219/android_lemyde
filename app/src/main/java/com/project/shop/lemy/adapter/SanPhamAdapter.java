@@ -8,6 +8,7 @@ import android.content.Intent;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Color;
+import android.os.Build;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -21,13 +22,17 @@ import android.widget.Toast;
 
 import com.lemy.telpoo2lib.model.BObject;
 import com.lemy.telpoo2lib.model.Model;
+import com.lemy.telpoo2lib.utils.TimeUtils;
+import com.project.shop.lemy.Net.MyUrl2;
 import com.project.shop.lemy.R;
 import com.project.shop.lemy.Task.TaskGeneral;
 import com.project.shop.lemy.Task.TaskType;
 import com.project.shop.lemy.activity.UpdateProductActivity;
 import com.project.shop.lemy.bean.ProductObj;
 import com.project.shop.lemy.common.MenuFromApiSupport;
+import com.project.shop.lemy.dialog.DialogSupport;
 import com.project.shop.lemy.helper.MoneySupport;
+import com.project.shop.lemy.helper.MyUtils;
 import com.project.shop.lemy.helper.StringHelper;
 import com.project.shop.lemy.listener.ListenBack;
 import com.project.shop.lemy.sanpham.DetailProductActivity;
@@ -35,6 +40,9 @@ import com.project.shop.lemy.sanpham.SanPhamFm;
 import com.project.shop.lemy.listener.Listerner;
 import com.telpoo.frame.object.BaseObject;
 import com.telpoo.frame.utils.Mlog;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -62,7 +70,7 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.Viewhold
 
     @SuppressLint("ResourceAsColor")
     @Override
-    public void onBindViewHolder(SanPhamAdapter.Viewholder holder, int position) {
+    public void onBindViewHolder(Viewholder holder, int position) {
         if (list.size()-1==position) {
             onLoadEndListener.OnListenBack(true);
         }
@@ -107,6 +115,49 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.Viewhold
         holder.giaBan.setText("Giá Lẻ: "+ MoneySupport.moneyDot(""+oj.getGiaBanLe()));
         holder.giaBuon.setText("Giá CTV: "+ MoneySupport.moneyDot(""+oj.getGiaBuon()));
         holder.giaBuonSi.setText("Giá Buôn Sỉ: "+ MoneySupport.moneyDot(""+oj.getGiaBuonSi()));
+        float ago = (Calendar.getInstance().getTimeInMillis()/1000- oj.getPostAt())/60/60/24;
+        String timeunit=Math.floor(ago)+"ngày";
+        if (Math.floor(ago)==0) {
+            float bb=Calendar.getInstance().getTimeInMillis()/1000L- oj.getPostAt();
+            ago= bb/60/60;
+            int gio= (int) Math.floor(ago);
+            Mlog.D("------/"+ago+"---/"+gio+"----/"+(ago-gio)*60);
+            int phut= Math.round((ago-gio)*60);
+            timeunit= gio+"h"+phut+"p";
+        }
+        holder.tvPostAt.setText("Đăng cách đây: "+ timeunit);
+
+        holder.btnCopy.setOnClickListener(view -> {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Toast.makeText(context,"Đã sao chép",Toast.LENGTH_SHORT).show();
+                MyUtils.copyToClipboard(baseObject.getAsString("introduction","Lỗi!"),context);
+            }
+        });
+        holder.btnDownload.setOnClickListener(view -> {
+            JSONArray jaImage = null;
+            try {
+                jaImage = new JSONArray(baseObject.getAsString("images",""));
+            } catch (JSONException e) {
+                e.printStackTrace();
+                DialogSupport.dialogThongBao("Không có hình ảnh để tải ",context,null);
+                return;
+            }
+            for (int i = 0; i < jaImage.length(); i++) {
+                try {
+                    boolean status = MyUtils.downloadTask(MyUrl2.getRealUrlImage(jaImage.optString(i)), context);
+                    if (!status){
+                        DialogSupport.dialogThongBao("Có lỗi khi tải ảnh 8872 "+MyUrl2.getRealUrlImage(jaImage.optString(i)),context,null);
+                        return;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Mlog.E(e.getMessage());
+                    DialogSupport.dialogThongBao("Có lỗi khi tải ảnh "+e.getMessage()+" - "+MyUrl2.getRealUrlImage(jaImage.optString(i)),context,null);
+                    return;
+                }
+            }
+
+        });
 
         holder.imgNew.setOnClickListener(view -> {
 
@@ -174,8 +225,8 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.Viewhold
     public class Viewholder extends RecyclerView.ViewHolder {
         ImageView imgNew;
         TextView tvTendsspsp, giaNhap, giaBan, giaBuon, giaBuonSi;
-        TextView tvtonkho,tvslkho,tvorder_24h,tvorder_tong;
-
+        TextView tvtonkho,tvslkho,tvorder_24h,tvorder_tong,tvPostAt;
+        View btnCopy,btnDownload;
         public Viewholder(View v) {
             super(v);
             imgNew = v.findViewById(R.id.imgNew);
@@ -188,6 +239,9 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.Viewhold
             tvtonkho= v.findViewById(R.id.tvtonkho);
             tvorder_24h= v.findViewById(R.id.tvorder_24h);
             tvslkho= v.findViewById(R.id.tvslkho);
+            btnCopy= v.findViewById(R.id.btnCopy);
+            tvPostAt= v.findViewById(R.id.tvPostAt);
+            btnDownload= v.findViewById(R.id.btnDownload);
             imgNew.setTag(0l);
         }
     }

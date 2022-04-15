@@ -85,8 +85,12 @@ public class TaskProductv2 extends Task {
     private Dataget updateProduct(TaskParams param0) {
         BObject oj = param0.getTaskParramBaseObject("oj");
         String productId= param0.getTaskParramString("id");
+        return updateProduct(productId,oj);
+    }
+
+    public static Dataget updateProduct (Object productId, BObject ojUpdate){
         String url= NetSupport2.getBaseUrlv2()+ MyUrl2.product+productId;
-        String pa=oj.convert2NetParrams();
+        String pa=ojUpdate.convert2NetParrams();
         if (pa.charAt(0)=='&') pa=pa.substring(1);
         return NetSupport.getInstance().request("PUT",url,pa);
     }

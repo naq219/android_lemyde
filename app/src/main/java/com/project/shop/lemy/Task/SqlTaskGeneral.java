@@ -34,4 +34,6 @@ public class SqlTaskGeneral {
         String sql="UPDATE "+BuildConfig.db_nhacviec+".`task` SET `active`='0' WHERE  `id`= "+id;
         return sql;
     }
+
+
 }

@@ -84,6 +84,6 @@ public class ProductObj extends BObject {
     }
 
     public int getPostAt() {
-        return getAsInt(post_at);
+        return getAsInt(post_at,1);
     }
 }

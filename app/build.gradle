@@ -71,7 +71,7 @@ android {
 
             flavorDimensions "default"
             applicationId "com.lemyshop3"
-            versionCode 77
+            versionCode 78
 
         }
 

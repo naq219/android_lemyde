@@ -189,13 +189,13 @@ public class SanPhamFm extends BaseFragment implements View.OnClickListener {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
+        mapSx.put("Mới đăng", "post_at");
         mapSx.put("Order Mới", "lasttimeorder");
         //mapSx.put("Order yesterday", "order_yesterday");
         mapSx.put("Tổng order", "order_tong");
         mapSx.put("Tồn kho", "tonkho");
         mapSx.put("Sl kho", "slkho");
-        String[] k3 = {"Order Mới", "Tổng order",  "Tồn kho", "Sl kho"};
+        String[] k3 = {"Mới đăng","Order Mới", "Tổng order",  "Tồn kho", "Sl kho"};
         DialogSupport.setupSpinner(spinner, getActivity(), R.layout.spinner_item, k3, object -> {
             edtDssp.setText("");
             loadSearchSp();
