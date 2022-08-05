@@ -1,6 +1,8 @@
 package com.project.shop.lemy;
 
 import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -14,6 +16,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.karumi.dexter.Dexter;
@@ -101,7 +105,7 @@ public class MainActivity extends MainActivityLayout {
         //ChiTietDonHangActivity.startActivity(MainActivity.this,"22203");
         //startActivity(new Intent(this, AdminSettingActivity.class));
 
-
+        startService(new Intent(this,NhacViecService.class));
     }
 
 
@@ -158,6 +162,32 @@ public class MainActivity extends MainActivityLayout {
     @Override
     protected void onResume() {
         super.onResume();
+
+        NotificationCompat.Builder builder1 = new NotificationCompat.Builder(this, "Chanh Niem")
+                .setSmallIcon(R.drawable.notiyicon)
+                .setContentTitle("Đây là Title")
+                .setContentText(" nội dung của bạn là gì ")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        //NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.shop);
+            String description = getString(R.string.ghichu);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("9981", name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+
+// notificationId is a unique int for each notification that you must define
+//        notificationManager.notify(44, builder1.build());
+
+
         new Handler().postDelayed(() -> {
             //KeyboardSupport.hideSoftKeyboard(MainActivity.this);
 

@@ -120,8 +120,7 @@ public class NhapDonHome extends AppCompatActivity {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
-
-    @Override
+         @Override
     protected void onResume() {
         super.onResume();
         String pass=""+ SprSupport.getPass(getBaseContext());

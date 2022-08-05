@@ -24,7 +24,9 @@ import com.journeyapps.barcodescanner.CompoundBarcodeView;
 import com.project.shop.lemy.BaseFragment;
 import com.project.shop.lemy.BuildConfig;
 import com.project.shop.lemy.R;
+import com.project.shop.lemy.Task.TaskGeneral;
 import com.project.shop.lemy.Task.TaskNet;
+import com.project.shop.lemy.Task.TaskNetGeneral;
 import com.project.shop.lemy.Task.TaskType;
 import com.project.shop.lemy.adapter.ThayDoiTrangThaiDhAdapter;
 import com.project.shop.lemy.bean.OrderObj;
@@ -230,6 +232,13 @@ public class ThayDoiTrangThaiDonHangFm extends BaseFragment implements View.OnCl
                     showToast("Bạn không thay đổi gi cả");
                     return;
                 }
+
+                if(!status.equals("2")){
+                    showToast("Lỗi hệ thống ");
+                    TaskNetGeneral.exTaskNotifyImportain("Cố tình đổi trạng thái status="+status+" . "+edtIdDonHang.getText(),getContext());
+                    return ;
+                }
+
                 DialogSupport.dialogUpdateTrangThai(getActivity(), () ->
                         loadUpdateOrder());
                 break;

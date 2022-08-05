@@ -371,6 +371,9 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
         }, TaskOrderV2.UPDATE_THEO_SP,context);
         TaskParams param=new TaskParams();
         BObject oj = new BObject();
+
+        if(SprSupport.isAdmin(context))
+        oj.set("force_edit",1);
         oj.set("order_id",orderId);
         oj.set("product_id",productId);
         if (sl!=null)

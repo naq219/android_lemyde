@@ -125,7 +125,7 @@ public class NhacViecViewLayout {
     private void xoaNhacNho(Object id) {
         String sql= SqlTaskGeneral.nhacviecSetActive0(id);
         TaskGeneralTh.exeTaskStatement(context,sql,"sdasd",123,new Model());
-        lv.postDelayed(() -> {checkViec();},1000);
+        lv.postDelayed(() -> {checkViec();},2000);
     }
 
     private void checkViec() {

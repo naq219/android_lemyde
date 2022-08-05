@@ -372,7 +372,7 @@ public class SuaCodGhtkActivity extends MyActivity {
         if(radioFreeship.isChecked())isFreeship="1";
         else isFreeship="0";
 
-        TaskNetGeneral.exTaskNotifyImportain(codenv+" Sửa cod GHTK DHM"+curMaDH+" - mvd: "
+        TaskNetGeneral.exTaskNotifyOnlyMe(codenv+" Sửa cod GHTK DHM"+curMaDH+" - mvd: "
                 +maVanDon+" - freeship "+radioFreeship.isChecked()+" số tiền: "+pickMoney,context);
 
 
@@ -456,7 +456,7 @@ public class SuaCodGhtkActivity extends MyActivity {
 
     public void clickUpdateCrm(View view) {
         if (!isCanEditCod())return;
-        TaskNetGeneral.exTaskNotifyImportain(codenv+"  Sửa cod CRM DHM"+edMadhCrm.getText().toString(),context);
+        TaskNetGeneral.exTaskNotifyOnlyMe(codenv+"  Sửa cod CRM DHM"+edMadhCrm.getText().toString(),context);
         showProgressDialog();
         if (edMadhCrm.getText().toString().isEmpty()||edMoneyCrm.getText().toString().isEmpty()){
             showToast("chưa nhập thông tin");

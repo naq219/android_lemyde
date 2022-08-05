@@ -54,7 +54,7 @@ public class SanPhamFm extends BaseFragment implements View.OnClickListener {
     //private String type;
     private SanPhamAdapter adapter;
     private RecyclerView rcViewsp;
-
+    View btnViewPost;
     int page = 1;
     int size = 20;
     private EditText edtDssp;
@@ -91,6 +91,7 @@ public class SanPhamFm extends BaseFragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.san_pham_fm, container, false);
         rcViewsp = view.findViewById(R.id.rcViewsp);
+        btnViewPost= view.findViewById(R.id.btnViewPost);
         edtDssp = view.findViewById(R.id.edtDssp);
         imgHuy = view.findViewById(R.id.imgHuy);
         prBar = view.findViewById(R.id.prBar);
@@ -108,6 +109,11 @@ public class SanPhamFm extends BaseFragment implements View.OnClickListener {
             DetailProductActivity.startActivityAddNew(getActivity(),edtDssp.getText().toString());
         });
 
+        btnViewPost.setOnClickListener(view1 -> {
+            spinner.setSelection(0,true);
+            edtDssp.setText("");
+            loadSearchSp();
+        });
 
         adapter.setItemClick((object) -> {
             Intent intent = new Intent(getActivity(), DetailProductActivity.class);

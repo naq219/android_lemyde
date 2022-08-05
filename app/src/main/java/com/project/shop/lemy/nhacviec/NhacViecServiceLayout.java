@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.lemy.telpoo2lib.utils.SprUtils;
 import com.lemy.telpoo2lib.utils.TimeUtils;
@@ -71,6 +72,18 @@ public class NhacViecServiceLayout extends Service {
         }
 
 
+        NotificationCompat.Builder builder1 = new NotificationCompat.Builder(NhacViecServiceLayout.this, "Chanh Niem")
+                .setSmallIcon(R.drawable.notiyicon)
+                .setContentTitle("Đây là Title")
+                .setContentText(" nội dung của bạn là gì ")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(NhacViecServiceLayout.this);
+
+// notificationId is a unique int for each notification that you must define
+        notificationManager.notify(44, builder1.build());
+
+
 
         TimerTask taskCheckSms = new TimerTask() {
             @Override
@@ -79,7 +92,9 @@ public class NhacViecServiceLayout extends Service {
                     @Override
                     public void run() {
                         try {
-                            Notification notifi = createNotifi("checkSMS " + TimeUtils.calToString(Calendar.getInstance(), "hh:mm:ss dd/MM/yyyy"));
+                            //Notification notifi = createNotifi("checkSMS " + TimeUtils.calToString(Calendar.getInstance(), "hh:mm:ss dd/MM/yyyy"));
+
+
 
                             checkSMSBank();
                         }catch (Exception e){
@@ -101,7 +116,7 @@ public class NhacViecServiceLayout extends Service {
         if (MySpr.isEnableShowTaskCK(iContext))  initView();
 
 
-        runPhatNhacPhatPhap();
+        //runPhatNhacPhatPhap();
 
 
 
@@ -256,32 +271,7 @@ public class NhacViecServiceLayout extends Service {
         };
         view.findViewById(R.id.root).setOnTouchListener(touchview);
 
-        //View vgOpen=view.findViewById(R.id.vgOpen);
 
-//        view.findViewById(R.id.close).setOnClickListener(view1 -> {
-//          vgOpen.setVisibility(View.GONE);
-//
-//        });
-
-//        view.findViewById(R.id.hide).setOnClickListener(view1 -> {
-//                View lv= view.findViewById(R.id.lv);
-//                if (lv.getVisibility()==View.GONE){
-//                    lv.setVisibility(View.VISIBLE);
-//                    view.findViewById(R.id.lo_add).setVisibility(View.VISIBLE);
-//                    view.findViewById(R.id.tmp1).setVisibility(View.VISIBLE);
-//                    view.findViewById(R.id.close).setVisibility(View.VISIBLE);
-//                    enableKeyPadInput(true);
-//                }
-//                else {
-//                    lv.setVisibility(View.GONE);
-//                    view.findViewById(R.id.lo_add).setVisibility(View.GONE);
-//                    view.findViewById(R.id.tmp1).setVisibility(View.GONE);
-//                    view.findViewById(R.id.close).setVisibility(View.GONE);
-//                    enableKeyPadInput(false);
-//                }
-//
-//
-//        });
 
         view.findViewById(R.id.close).setOnClickListener(view1 -> {
             view1123.timeButtonCLose= Calendar.getInstance().getTimeInMillis()+2*60*1000;
