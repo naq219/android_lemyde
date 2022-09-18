@@ -5,8 +5,8 @@ import com.project.shop.lemy.bean.ItemObj;
 import com.project.shop.lemy.bean.SmsObj;
 
 public class DbConfig {
-    public static final String[] tables = {"shop", "sms"};
-    public static final String[][] keys = {ItemObj.keysdb, SmsObj.keysdb};
+    public static final String[] tables = {"shop", "sms","thanhanhniem"};
+    public static final String[][] keys = {ItemObj.keysdb, SmsObj.keysdb,{"content"}};
     public static final String dbName = "LeMy";
     public static final Integer dbVersion = 1;
     public static final String SHOP = tables[0];

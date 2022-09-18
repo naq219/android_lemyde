@@ -19,21 +19,25 @@
 
     <application
         android:name=".MyApplication"
-
+        android:allowBackup="false"
         android:icon="@drawable/ic_launcher1"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher1"
         android:supportsRtl="true"
-        android:allowBackup="false"
         android:theme="@style/AppTheme"
-
         tools:replace="android:allowBackup">
 
-        <meta-data android:name="io.sentry.dsn" android:value="https://2affd1ea4410447fa489af2d2822900e@o93689.ingest.sentry.io/6069679" />
-        <!-- Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
-           We recommend adjusting this value in production. -->
-        <meta-data android:name="io.sentry.traces.sample-rate" android:value="1.0" />
 
+        <meta-data
+            android:name="io.sentry.dsn"
+            android:value="https://2affd1ea4410447fa489af2d2822900e@o93689.ingest.sentry.io/6069679" />
+        <!--
+ Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+           We recommend adjusting this value in production.
+        -->
+        <meta-data
+            android:name="io.sentry.traces.sample-rate"
+            android:value="1.0" />
 
         <activity android:name=".nhacviec.NhacViecActivity" />
         <activity
@@ -48,8 +52,9 @@
         <activity
             android:name=".donhang.ChiTietDonHangActivity"
             android:theme="@style/AppThemeSwipeBack"
-            android:windowSoftInputMode="adjustPan" >
-            <meta-data android:name="android.app.searchable"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
         <activity

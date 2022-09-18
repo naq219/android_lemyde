@@ -1,3 +1,5 @@
+import java.time.Clock
+
 plugins {
     id 'com.android.application'
 }
@@ -10,7 +12,7 @@ android {
         minSdk 21
         targetSdk 23
         versionCode 1
-        versionName "1.0"
+        versionName "80"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -71,7 +73,11 @@ android {
 
             flavorDimensions "default"
             applicationId "com.lemyshop3"
-            versionCode 78
+            versionCode 80
+
+            Random random = new Random()
+            Calendar car= Calendar.getInstance();
+            setProperty("archivesBaseName",  car.get(Calendar.HOUR_OF_DAY)+"h"+car.get(Calendar.MINUTE)+"_"+car.get(Calendar.DAY_OF_MONTH)+"."+car.get(Calendar.MONTH)+"-v" + versionCode )
 
         }
 
@@ -123,10 +129,8 @@ dependencies {
     implementation 'io.sentry:sentry-android:5.4.0'
     implementation "ch.acra:acra-dialog:5.8.4"
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
-
-
-
-
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
 
 
 }

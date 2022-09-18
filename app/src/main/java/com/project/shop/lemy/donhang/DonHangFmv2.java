@@ -38,6 +38,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * adapter @{@link DonHangAdapterV2}
+ * view xml {@link R.layout#don_hang_fmv2}
+ */
 public class DonHangFmv2 extends BaseFragment implements View.OnClickListener {
     private DonHangAdapterV2 adapter;
     private RecyclerView recycleView;
@@ -45,6 +49,7 @@ public class DonHangFmv2 extends BaseFragment implements View.OnClickListener {
     private ProgressBar prBar;
     private TextView tvLocdh,tvShop,tvThongBaoList;
     EditText edtSearch;
+    View btnXemThem;
     private ImageView imgForcus;
     int size = 50;
     private String KEYRQ_SORT = "sort";
@@ -96,12 +101,26 @@ public class DonHangFmv2 extends BaseFragment implements View.OnClickListener {
         prBar = view.findViewById(R.id.prBar);
         tvLocdh = view.findViewById(R.id.tvLocdh);
         imgForcus = view.findViewById(R.id.imgForcus);
+        btnXemThem = view.findViewById(R.id.btnXemThem);
         recycleView = view.findViewById(R.id.recycleView);
         recycleView.setHasFixedSize(true);
         recycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new DonHangAdapterV2(getActivity());
         recycleView.setAdapter(adapter);
 
+        recycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+
+                if (!recyclerView.canScrollVertically(1)) {
+                    showToast("cuoi cung");
+                    if (btnXemThem.getVisibility()==View.GONE)
+                    btnXemThem.setVisibility(View.VISIBLE);
+
+                }
+            }
+        });
         setupMenu();
         OrderHelper.loadShop2Menu(false,tvShop,getContext());
         tvShop.setOnClickListener(v -> {
@@ -144,6 +163,11 @@ public class DonHangFmv2 extends BaseFragment implements View.OnClickListener {
                     break;
             }
             return false;
+        });
+
+        btnXemThem.setOnClickListener(view1 -> {
+            loadDonHang_NEW(1000);
+            btnXemThem.setVisibility(View.INVISIBLE);
         });
 
 
@@ -228,7 +252,8 @@ public class DonHangFmv2 extends BaseFragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.tvLocdh:
                 clearList();
-                loadDonHang_NEW(20);
+                loadDonHang_NEW(50);
+                btnXemThem.setVisibility(View.GONE);
                 break;
             case R.id.imgForcus:
                 edtSearch.setText("");
@@ -241,6 +266,7 @@ public class DonHangFmv2 extends BaseFragment implements View.OnClickListener {
         prBar.setVisibility(View.GONE);
         isLoading = false;
         adapter.setData(new ArrayList<>());
+        btnXemThem.setVisibility(View.GONE);
     }
 
     @Override

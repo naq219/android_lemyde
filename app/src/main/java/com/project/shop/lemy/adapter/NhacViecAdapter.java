@@ -1,15 +1,11 @@
 package com.project.shop.lemy.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
-import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,31 +14,18 @@ import com.lemy.telpoo2lib.model.BObject;
 import com.lemy.telpoo2lib.model.Model;
 import com.project.shop.lemy.BuildConfig;
 import com.project.shop.lemy.R;
-import com.project.shop.lemy.Task.TaskGeneral;
 import com.project.shop.lemy.Task.TaskGeneralTh;
-import com.project.shop.lemy.bean.CustomerObj;
-import com.project.shop.lemy.bean.SmsObj;
-import com.project.shop.lemy.common.Keyboard;
-import com.project.shop.lemy.donhang.ChiTietDonHangActivity;
-import com.project.shop.lemy.helper.StringHelper;
+import com.project.shop.lemy.helper.MySpr;
 import com.project.shop.lemy.listener.ListenBack;
-import com.project.shop.lemy.listener.Listerner;
-import com.project.shop.lemy.nhacviec.NhacViecServiceLayout;
-import com.telpoo.frame.object.BaseObject;
-import com.telpoo.frame.utils.KeyboardSupport;
+import com.project.shop.lemy.nhacviec.NhacViecService;
 import com.telpoo.frame.utils.Mlog;
 import com.telpoo.frame.utils.SPRSupport;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by Ducqv on 7/5/2018.
@@ -170,6 +153,7 @@ public class NhacViecAdapter extends RecyclerView.Adapter<NhacViecAdapter.ViewHo
     }
     int lastNumberUseTag=1;
     public void setData(List<BObject> ojs1,View root) {
+        if (MySpr.isVietCombank(context)) return;
 //        if (Calendar.getInstance().getTimeInMillis()-timeResetHm>3*60*1000){
 //            timeResetHm= Calendar.getInstance().getTimeInMillis();
 //            hm = new HashMap<>();
@@ -228,7 +212,7 @@ public class NhacViecAdapter extends RecyclerView.Adapter<NhacViecAdapter.ViewHo
         if (check1.length()>0){
             root.setVisibility(View.VISIBLE);
             listenNewData.OnListenBack("");
-            NhacViecServiceLayout.tagOpenView=true;
+            NhacViecService.tagOpenView=true;
         }
 
     }

@@ -11,4 +11,14 @@ public class NhacViecReiceiver extends BroadcastReceiver {
         Toast.makeText(context,"asd",Toast.LENGTH_LONG).show();
         NhacViecService.tagOpenView=true;
     }
+
+    public class THNReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Toast.makeText(context,"THN",Toast.LENGTH_LONG).show();
+            context.startActivity(new Intent(context,ThanhHanhNiemActivity.class));
+        }
+    }
 }
+
+

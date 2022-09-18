@@ -39,9 +39,9 @@ public class NhacViecViewLayout {
     //check lien tuc
     int countClt=-1;
     long lastCheck=0;
-    private NhacViecServiceLayout nvService;
+    private NhacViecService nvService;
 
-    public NhacViecViewLayout(Context context,NhacViecServiceLayout nvService){
+    public NhacViecViewLayout(Context context, NhacViecService nvService){
         codenv = SPRSupport.getString("codenv",context,"");
         this.nvService = nvService;
         this.context = context;
@@ -90,7 +90,7 @@ public class NhacViecViewLayout {
                         timeButtonCLose=0;
                     }
                 });
-                if (NhacViecServiceLayout.tagOpenView){
+                if (NhacViecService.tagOpenView){
 
                     root.post(() -> {
                         checkViec();
@@ -100,7 +100,7 @@ public class NhacViecViewLayout {
                     });
 
 
-                    NhacViecServiceLayout.tagOpenView=false;
+                    NhacViecService.tagOpenView=false;
                 }
             }
         };

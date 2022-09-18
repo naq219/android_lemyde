@@ -12,11 +12,10 @@ import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
 
 import com.lemy.telpoo2lib.model.Model;
-import com.lemy.telpoo2lib.utils.SprUtils;
 import com.lemy.telpoo2lib.utils.TimeUtils;
 import com.project.shop.lemy.BuildConfig;
 import com.project.shop.lemy.Task.TaskGeneralTh;
-import com.project.shop.lemy.nhacviec.NhacViecServiceLayout;
+import com.project.shop.lemy.nhacviec.NhacViecService;
 import com.telpoo.frame.utils.Mlog;
 
 import java.util.ArrayList;
@@ -61,7 +60,7 @@ public class AllSMSLoader implements LoaderManager.LoaderCallbacks<Cursor> {
         if (keyPhone==null) return;
         List<String> phoneNumbers = new ArrayList<String>();
         int countLimit=0;
-        NhacViecServiceLayout.lastCheckSms= TimeUtils.getTimeMillis();
+        NhacViecService.lastCheckSms= TimeUtils.getTimeMillis();
         while (cursor.moveToNext()) {
             String phoneNumber = cursor.getString(cursor.getColumnIndexOrThrow("address"));
             if (phoneNumber==null)

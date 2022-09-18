@@ -23,10 +23,18 @@ public class MySpr extends SprUtils {
         return false;
     }
 
+
+    public static boolean isVietCombank(Context context){
+        String smsfilter= SprUtils.getString("keyphonebank",context);
+
+        if (smsfilter!=null&&smsfilter.length()>0&&smsfilter.toLowerCase().contains("vietcombank")) return true;
+        return false;
+    }
+
     public static boolean isEnableShowTaskCK(Context context){
         String smsfilter= SprUtils.getString("keyphonebank",context);
 
-        if (smsfilter!=null&&smsfilter.length()>0&&smsfilter.toLowerCase().contains("vietcom")) return false;
+        if (smsfilter!=null&&smsfilter.length()>0&&smsfilter.toLowerCase().contains("vietcom1")) return false;
 
         if (smsfilter!=null&&smsfilter.length()>0)
             return true;

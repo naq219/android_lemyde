@@ -20,6 +20,7 @@ import com.project.shop.lemy.common.SprSupport;
 import com.project.shop.lemy.dialog.DialogSupport;
 import com.project.shop.lemy.helper.MySpr;
 import com.project.shop.lemy.helper.MyTextWatcher;
+import com.project.shop.lemy.nhacviec.ThanhHanhNiemActivity;
 import com.telpoo.frame.utils.SPRSupport;
 import com.telpoo.frame.widget.TextWatcherAdapter;
 
@@ -76,6 +77,9 @@ public class LoginActivity extends SwipeBackActivity {
                 super.afterTextChanged(s);
                 String vs= edCommand.getText().toString();
                 if (vs.equals("...")) stopSelf();
+
+                if (vs.equals("thn")) startActivity(new Intent(mContext, ThanhHanhNiemActivity.class));
+
             }
         });
 

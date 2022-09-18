@@ -198,7 +198,10 @@ public class MainActivityLayout extends MyActivity {
             ft.addToBackStack(backStateName);
 
 
-            ft.commit();
+            try {
+                ft.commit();
+            }
+            catch (Exception e){}
             tvTitle.postDelayed(() -> {
                 Menu mn = navView.getMenu();
                 if (mn.size()==0) return;

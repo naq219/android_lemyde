@@ -213,6 +213,7 @@
         layout="@layout/layout_recycle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/btnXemThem"
         android:layout_below="@+id/tvThongBaoList"
         android:layout_marginTop="5dp"></include>
 
@@ -226,4 +227,12 @@
         android:layout_alignTop="@+id/recycleView"
         android:layout_marginTop="64dp"
         android:padding="@dimen/btn_margin5" />
+    <Button
+        android:layout_width="wrap_content"
+        android:text="Xem Thêm"
+        android:visibility="gone"
+        android:id="@+id/btnXemThem"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"/>
 </RelativeLayout>

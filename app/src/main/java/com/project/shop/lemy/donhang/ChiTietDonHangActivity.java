@@ -37,6 +37,7 @@ import com.project.shop.lemy.SwipeBackActivity;
 import com.project.shop.lemy.Task.TaskGeneralTh;
 import com.project.shop.lemy.Task.TaskNetGeneral;
 import com.project.shop.lemy.Task.TaskNetOrder;
+import com.project.shop.lemy.Task.TaskNhapDonV2;
 import com.project.shop.lemy.Task.TaskOrderV2;
 import com.project.shop.lemy.Task.TaskProductv2;
 import com.project.shop.lemy.Task.TaskSupport;
@@ -57,6 +58,7 @@ import com.telpoo.frame.model.BaseModel;
 import com.telpoo.frame.object.BaseObject;
 import com.telpoo.frame.utils.JsonSupport;
 import com.telpoo.frame.utils.KeyboardSupport;
+import com.telpoo.frame.utils.SPRSupport;
 import com.telpoo.frame.utils.TimeUtils;
 import com.telpoo.frame.utils.ViewUtils;
 
@@ -72,13 +74,15 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
     private RecyclerView rcSanPham;
     private DetailAdapter2 adapter;
     View btnTachDon;
-    View tvSendSMS, tvInDH, btnDayVanChuyen, viewXuat;
+    View tvSendSMS, tvInDH, btnDayVanChuyen, viewXuat,vAddThuShip;
     TextView tvMaDh, tvShop, tvDiaChi, tvTongTien,tvThongBao;
     private Long curQueue = null;
     String orderId;
     private BaseObject oj;
     private Context context;
     private SensorEventListener proximitySensorEventListener;
+    private String curPhone="";
+    private Integer shopId=9999999;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,6 +157,7 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
 
     void init() {
         tvThongBao= findViewById(R.id.tvThongBao);
+        vAddThuShip = findViewById(R.id.vAddThuShip);
         tvSendSMS = findViewById(R.id.tvSendSMS);
         tvInDH = findViewById(R.id.tvInDH);
         btnDayVanChuyen = findViewById(R.id.btnDayVanChuyen);
@@ -198,6 +203,7 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
         });
 
 
+
         //setTitle("Hệ thống do LEMY GERMANY phát triển");
 
         adapter.setOnTickChanged1(object -> {
@@ -211,6 +217,57 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
                 tachVaXuat();
             },300);
 
+        });
+
+        vAddThuShip.setOnClickListener(view -> {
+            com.telpoo.frame.utils.DialogSupport.simpleYesNo(context,"Thêm","Hủy","Thêm 30k Phí Ship?",null,(value, where) -> {
+
+                String sql1="select * from detail_orders do where do.order_id = "+orderId+" and do.product_id = 196 ";
+
+
+                //String sql="insert into detail_orders do set do.";
+//                JSONObject jo = new JSONObject();
+//                try {
+//                    jo.put("phone",curPhone);
+//                    jo.put("free_ship",1);
+//                    jo.put("shop_id",shopId);
+//                    jo.put("phone",curPhone);
+//
+//                    JSONArray jaSP= new JSONArray();
+//                    JSONObject joSp= new JSONObject();
+//                    joSp.put("quantity",1);
+//                    joSp.put("gia_ban",30000);
+//                    joSp.put("product_id",196);
+//                    jaSP.put(joSp);
+//
+//                    jo.put("sp",jaSP);
+//                    String code= SPRSupport.getString("codenv",context,"nouser");
+//                    jo.put("user",code);
+//
+//
+//
+//                    TaskNhapDonV2 taskNhapDonV2 = new TaskNhapDonV2(new Model(){
+//                        @Override
+//                        public void onSuccess(int taskType, Object data, String msg, Integer queue) {
+//                           apiDetail(false);
+//                        }
+//
+//                        @Override
+//                        public void onFail(int taskType, String msg, Integer queue) {
+//                            showDl(msg);
+//                        }
+//                    },TaskNhapDonV2.NHAPDON,context);
+//
+//                    TaskParams pr = new TaskParams();
+//                    pr.setTaskParramDeFault(jo.toString());
+//                    taskNhapDonV2.exe(pr);
+
+
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+
+            });
         });
 
         tvDiaChi.setOnClickListener(view -> {
@@ -596,6 +653,7 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
         }
         try {
             BaseObject ojCustomer = JsonSupport.jsonObject2BaseOj(oj.get("customer"));
+            curPhone= ojCustomer.get(CustomerObj.phone);
             tvDiaChi.setText(ojCustomer.get(CustomerObj.name) + "(" + ojCustomer.get(CustomerObj.Ten_fb) + ") * " + ojCustomer.get(CustomerObj.phone) + " * " + ojCustomer.get("full_address"));
 
             ArrayList<BaseObject> listProducts = JsonSupport.jsonArray2BaseOj(oj.get("detail_orders"));
@@ -607,7 +665,7 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
                 finish();
             });
         }
-        int shopId=oj.getInt("shop_id",-1);
+         shopId=oj.getInt("shop_id",-1);
         tvMaDh.setVisibility(View.VISIBLE);
 
 //        if (shopId==2||shopId==3||shopId==39){
@@ -619,7 +677,7 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
         setTitle("DHM" + oj.get(OrderObj.id) +" - KH"+oj.get("customer_id")+ " - " + OrderHelper.getStatusName(oj.get(OrderObj.status)));
         String ghichucc=oj.get(OrderObj.note); if (ghichucc==null||ghichucc.equals("null")) ghichucc="";
         tvShop.setText("Shop: " + oj.get(OrderObj.shop_name) + ". Ghi chú: " + ghichucc);
-        String freeship="Thu phí ship"; if(oj.getInt("free_ship")==1)freeship= "Miễn phí ship";
+        String freeship="Thu phí ship"; if(oj.getInt("free_ship")==1)freeship= "mps";
         tvTongTien.setText("Tổng: " + MoneySupport.moneyEndK(oj.get(OrderObj.total_amount)) + "  Đã ck: " + MoneySupport.moneyEndK(oj.get(OrderObj.money_received))+" * "+freeship);
 
     }

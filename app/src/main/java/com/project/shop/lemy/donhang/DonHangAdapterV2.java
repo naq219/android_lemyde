@@ -28,6 +28,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+/**
+ * danh sach don hang {@link DonHangFmv2}
+ */
 public class DonHangAdapterV2 extends RecyclerView.Adapter<DonHangAdapterV2.Viewholder> {
     Context context;
     List<BObject> list = new ArrayList<>();

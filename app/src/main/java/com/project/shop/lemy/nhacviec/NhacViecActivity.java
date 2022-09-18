@@ -14,7 +14,7 @@ public class NhacViecActivity extends AppCompatActivity {
         setContentView(R.layout.activity_nhac_viec);
 
         //SprUtils.saveString();
-        NhacViecServiceLayout.tagOpenView=true;
+        NhacViecService.tagOpenView=true;
 
     }
 }
