@@ -7,13 +7,17 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.shop.lemy.R;
+import com.project.shop.lemy.adapter.MyAdapter;
 import com.project.shop.lemy.donhang.DonHangFmv2;
 import com.telpoo.frame.utils.DialogSupport;
 import com.telpoo.frame.utils.SPRSupport;
+import com.telpoo.frame.utils.TimeUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +30,7 @@ public class ThanhHanhNiemAdapter extends RecyclerView.Adapter<ThanhHanhNiemAdap
 
     Context context;
     JSONArray ja =new JSONArray();
-
+    long lastClickSave=0;
     public ThanhHanhNiemAdapter(Context context) {
         this.context = context;
         loadDataSpr();
@@ -64,6 +68,7 @@ public class ThanhHanhNiemAdapter extends RecyclerView.Adapter<ThanhHanhNiemAdap
     }
 
 
+
     @Override
     public void onBindViewHolder(final Viewholder holder, int position) {
         if (ja.length()==0) return;
@@ -85,30 +90,12 @@ public class ThanhHanhNiemAdapter extends RecyclerView.Adapter<ThanhHanhNiemAdap
             }
         });
 
+
+
         holder.btnSave.setOnClickListener(view -> {
-           DialogSupport.simpleYesNo(context,"Yes","No","OK SAVE?","",(value, where) -> {
-               if (where==1){
+          if (TimeUtils.getTimeMillis()-lastClickSave<200&&lastClickSave>0)okSave(jo,holder,position);
+          else lastClickSave=TimeUtils.getTimeMillis();
 
-
-
-                   try {
-                       jo.put("min",holder.edMin.getText().toString());
-                       jo.put("max",holder.edMax.getText().toString());
-                       jo.put("enable",holder.checkbox.isChecked()?1:0);
-                       jo.put("content",holder.edContent.getText().toString());
-
-                       if (holder.edContent.getText().toString().isEmpty()){
-                           ja.remove(position);
-                       }
-                   } catch (JSONException e) {
-                       e.printStackTrace();
-                   }
-
-
-                   save2Spr();
-                   loadDataSpr();
-               }
-           });
        });
 
         holder.btnSave.setOnLongClickListener(view -> {
@@ -131,9 +118,48 @@ public class ThanhHanhNiemAdapter extends RecyclerView.Adapter<ThanhHanhNiemAdap
 
     }
 
+    public void saveAll(){
+        save2Spr();
+        loadDataSpr();
+        showToast("Lưu thành công1!");
+    }
+
+    private void okSave(JSONObject jo, Viewholder holder, int position) {
+        try {
+            jo.put("min",holder.edMin.getText().toString());
+            jo.put("max",holder.edMax.getText().toString());
+            jo.put("enable",holder.checkbox.isChecked()?1:0);
+            jo.put("content",holder.edContent.getText().toString());
+
+            if (holder.edContent.getText().toString().isEmpty()){
+                ja.remove(position);
+            }
+            if (holder.edContent.getText().toString().contains("gggg"))ja.remove(position);
+            save2Spr();
+            loadDataSpr();
+            showToast("Lưu thành công!");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            showToast("Lỗi "+e.getMessage());
+
+        }
+//        DialogSupport.simpleYesNo(context,"Yes","No","OK SAVE?","",(value, where) -> {
+//            if (where==1){
+//
+//
+//
+//            }
+//        });
+    }
+
+    private void showToast(String s) {
+        Toast.makeText(context,s,Toast.LENGTH_LONG).show();
+    }
+
     private void save2Spr() {
         SPRSupport.save("thanhanhniem",ja.toString(),context);
-        NhacViecService.reloadDataThn=true;
+       ThanHanhNiem.reloadDataThn=true;
     }
 
 

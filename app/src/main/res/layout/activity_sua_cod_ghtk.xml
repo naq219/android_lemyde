@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:padding="5dp"
     android:layout_height="match_parent"
     tools:context="com.project.shop.lemy.chucnangkhac.SuaCodGhtkActivity">
 
@@ -63,29 +64,29 @@
             android:orientation="horizontal"
             android:layout_height="wrap_content">
             <EditText
-                android:layout_width="wrap_content"
+                style="@style/edittext_small"
                 android:hint="Mã crm"
                 android:inputType="number"
                 android:id="@+id/edMadh"
                 android:layout_margin="10dp"
-                android:layout_height="wrap_content" >
+                 >
                 <requestFocus />
             </EditText>
 
             <EditText
 
-                android:layout_width="wrap_content"
+                style="@style/edittext_small"
                 android:hint="Mã GHTK"
                 android:inputType="number"
                 android:id="@+id/edVanDon"
 
                 android:layout_margin="10dp"
-                android:layout_height="wrap_content" />
+                 />
 
             <Button
                 android:layout_width="wrap_content"
                 android:text="Kiểm tra"
-                android:layout_margin="10dp"
+
                 android:layout_gravity="center_vertical"
                 android:onClick="clickCheck"
                 android:layout_height="wrap_content" />
@@ -111,87 +112,108 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:visibility="gone"
         android:id="@+id/tmp3"
-        android:padding="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tmp2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:background="#5EB1B1B1"
-        android:layout_height="wrap_content">
+        android:orientation="vertical"
+        android:padding="3dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:id="@+id/tvInfo1"
-            android:text=""
-            android:layout_height="wrap_content"/>
+
+
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <EditText
-                android:layout_width="wrap_content"
-                android:hint="Tiền cod"
                 android:id="@+id/edMoney"
-                android:inputType="number"
-                android:layout_height="wrap_content" />
+                style="@style/edittext_small"
+                android:layout_gravity="center"
+                android:hint="Tiền cod"
+                android:inputType="number" />
+
             <CheckBox
 
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_gravity="center_vertical"
                 android:id="@+id/radioFreeship"
-                android:text="FreeShip"
-                android:layout_height="wrap_content" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:text="FreeShip" />
 
             <Button
                 android:layout_width="wrap_content"
-                android:text="Cập nhật GHTK"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/tmp3"
-                android:layout_marginLeft="5dp"
-                android:layout_gravity="center_vertical"
-                android:onClick="clickUpdate"
                 android:layout_centerHorizontal="true"
-                android:layout_height="wrap_content" />
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:onClick="clickUpdate"
+                android:text="Cập nhật GHTK" />
         </LinearLayout>
     </LinearLayout>
 
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/tmp4"
-        android:padding="3dp"
+    <TextView
         android:layout_below="@+id/tmp3"
+        android:id="@+id/tvInfo1"
+        android:textColor="#EF5350"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/tvInfoCongThem"
+        style="@style/textbase"
+        android:layout_below="@+id/tvInfo1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="##"
+        android:textColor="#388ED3" />
+    <LinearLayout
+        android:id="@+id/tmp4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvInfoCongThem"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
         android:background="#5EB1B1B1"
-        android:layout_height="wrap_content">
+        android:orientation="horizontal"
+        android:padding="3dp">
+
         <EditText
-            android:inputType="number"
-            android:layout_width="wrap_content"
-            android:hint="Mã DH"
             android:id="@+id/edMadhCrm"
-            android:layout_height="wrap_content" />
+
+            android:hint="Mã DH"
+
+            android:layout_gravity="center"
+            style="@style/edittext_small"
+            android:inputType="number" />
+
         <EditText
-            android:layout_width="wrap_content"
-            android:hint="Tiền đã nhận"
-            android:inputType="number"
             android:id="@+id/edMoneyCrm"
+           style="@style/edittext_small"
+            android:layout_gravity="center"
             android:layout_marginLeft="5dp"
-            android:layout_height="wrap_content" />
+            android:layout_centerHorizontal="true"
+            android:hint="Tiền Cộng Thêm"
+            android:inputType="number" />
 
 
         <Button
             android:layout_width="wrap_content"
-            android:text="Nhật tiền CRM"
-
-            android:layout_marginLeft="5dp"
-            android:layout_gravity="center_vertical"
-            android:onClick="clickUpdateCrm"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_height="wrap_content" />
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:onClick="clickUpdateCrm"
+            android:text="Nhập tiền CRM" />
     </LinearLayout>
 
     <LinearLayout

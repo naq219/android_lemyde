@@ -146,12 +146,13 @@ public class LoginActivity extends SwipeBackActivity {
             pass = edtPass.getText().toString();
             SprSupport.savePass(this, pass);
         }
-
-
-
-
-
-        MySpr.savePhoneBank(edFilterPhone.getText().toString(),this);
+        String filterPhoneSave=""+edFilterPhone.getText().toString();
+        if (filterPhoneSave.contains("#show")){
+            filterPhoneSave.replace("#show","");
+            SPRSupport.save("show_tienck",true,mContext);
+        }
+        else SPRSupport.save("show_tienck",false,mContext);
+        MySpr.savePhoneBank(filterPhoneSave,this);
 
         if (isNewCodeNV){
             if (edCodeNv.getText().toString().length()>0){

@@ -28,8 +28,10 @@ import com.project.shop.lemy.Task.TaskOrderV2;
 import com.project.shop.lemy.common.Keyboard;
 import com.project.shop.lemy.donhang.ChiTietDonHangActivity;
 import com.project.shop.lemy.helper.MoneySupport;
+import com.project.shop.lemy.helper.MyTextWatcher;
 import com.telpoo.frame.model.BaseModel;
 import com.telpoo.frame.object.BaseObject;
+import com.telpoo.frame.utils.ClipboardSupport;
 import com.telpoo.frame.utils.DialogSupport;
 import com.telpoo.frame.utils.Mlog;
 import com.telpoo.frame.utils.SPRSupport;
@@ -45,7 +47,7 @@ import java.util.Calendar;
 public class SuaCodGhtkActivity extends MyActivity {
     public static String cookieGhtk=null;
     public static long lastTimeLogin=0;
-    TextView tvInfo;
+    TextView tvInfo,tvInfoCongThem;
     EditText edUser,edPass,edMadh,edVanDon,edMoney,edMadhCrm,edMoneyCrm;
     CheckBox radioFreeship;
     String maVanDon=null;
@@ -54,6 +56,7 @@ public class SuaCodGhtkActivity extends MyActivity {
     private String curMaDH=null;
     String codenv="nn";
     private String hiddenMoneyCrm="",hiddenDHM="";
+    private int soDuCu=-1;
     View btnGoCrm;
     View tmp3,tmp4,tmp51;
     EditText edOidUpdate,edTrackingUpdate;
@@ -68,7 +71,7 @@ public class SuaCodGhtkActivity extends MyActivity {
         tmp51= findViewById(R.id.tmp51); tmp51.setVisibility(View.GONE);
         edOidUpdate= findViewById(R.id.edOidUpdate);
         edTrackingUpdate= findViewById(R.id.edTrackingUpdate);
-
+        tvInfoCongThem = findViewById(R.id.tvInfoCongThem);
         edUser= findViewById(R.id.edUser);
         edPass= findViewById(R.id.edPass);
         edMadh= findViewById(R.id.edMadh);
@@ -82,6 +85,11 @@ public class SuaCodGhtkActivity extends MyActivity {
         });
         tvInfo.setOnClickListener(view -> {
             showToast("DHM"+hiddenDHM+"\n"+"Tiền crm "+MoneySupport.moneyEndK(hiddenMoneyCrm));
+        });
+
+        findViewById(R.id.tvInfo1).setOnClickListener(view -> {
+            showToast("Đã sao chép Mã : "+maVanDon);
+            ClipboardSupport.copy(context,""+maVanDon);
         });
 
         tvInfo.setOnLongClickListener(new View.OnLongClickListener() {
@@ -102,19 +110,18 @@ public class SuaCodGhtkActivity extends MyActivity {
         edMadhCrm = findViewById(R.id.edMadhCrm);
         edMoneyCrm= findViewById(R.id.edMoneyCrm);
 
-        edMadh.addTextChangedListener(new TextWatcher() {
+        edMoneyCrm.addTextChangedListener(new MyTextWatcher(){
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+            public void afterTextChanged(Editable s) {
+                super.afterTextChanged(s);
+                updateInfoCongThem();
             }
+        });
 
+        edMadh.addTextChangedListener(new MyTextWatcher(){
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
+            public void afterTextChanged(Editable s) {
+                super.afterTextChanged(s);
                 String edVl=edMadh.getText().toString();
                 if (!edVl.isEmpty()&&!edVanDon.getText().toString().isEmpty())edVanDon.setText("");
                 tvInfo.setText("");
@@ -127,7 +134,6 @@ public class SuaCodGhtkActivity extends MyActivity {
                     tmp4.setVisibility(View.GONE);
                     tmp51.setVisibility(View.VISIBLE);
                 }
-
             }
         });
 
@@ -140,19 +146,10 @@ public class SuaCodGhtkActivity extends MyActivity {
             }, 100);
         });
 
-        edVanDon.addTextChangedListener(new TextWatcher() {
+        edVanDon.addTextChangedListener(new MyTextWatcher(){
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
+            public void afterTextChanged(Editable s) {
+                super.afterTextChanged(s);
                 if(edVanDon.getText().toString().equals("001")){
                     findViewById(R.id.parentUserPass).setVisibility(View.VISIBLE);
                     edVanDon.postDelayed(() -> {
@@ -186,6 +183,29 @@ public class SuaCodGhtkActivity extends MyActivity {
 
     }
 
+    private void updateInfoCongThem() {
+        if (edMoneyCrm.getText().toString().isEmpty()) {
+            tvInfoCongThem.setText("##");
+            return;
+        }
+        int thisMoney=-1;
+        int totalAmount= -1;
+        try {
+            thisMoney=Integer.parseInt(edMoneyCrm.getText().toString());
+            totalAmount=Integer.parseInt(hiddenMoneyCrm);
+        }catch (Exception e){
+            showToast("có lỗi xảy ra, báo cho Quế. "+e.getMessage());
+
+            tvInfoCongThem.setText("##");
+            return;
+        }
+        if(soDuCu<0){
+            tvInfoCongThem.setText("##");
+        }
+        //tvInfoCongThem.setText("Số dư cũ= "+dot(""+soDuCu)+" . nhập thêm: "+dot(thisMoney)+". Tổ");
+        tvInfoCongThem.setText(dot(soDuCu)+" + "+dot(thisMoney)+" = "+dot(soDuCu+thisMoney)+".  Còn thiếu = "+(totalAmount-soDuCu-thisMoney) );
+    }
+
     public void clickUpdate(View view) {
 
         updateGhtk();
@@ -195,7 +215,7 @@ public class SuaCodGhtkActivity extends MyActivity {
     void setValueOrderId1(String orderId1){
         curMaDH=orderId1;
         if (orderId1!=null&&maVanDon!=null)
-        ((TextView)findViewById(R.id.tvInfo1)).setText("Đang sửa cod cho ĐH DHM"+orderId1+" - Mã Vận Đơn "+maVanDon);
+        ((TextView)findViewById(R.id.tvInfo1)).setText("Đang sửa cod DHM"+orderId1+" - Mã GHTK "+maVanDon);
         else  ((TextView)findViewById(R.id.tvInfo1)).setText("");
 
     }
@@ -212,7 +232,7 @@ public class SuaCodGhtkActivity extends MyActivity {
     public void clickCheck(View view) {
         showProgressDialog();
         maVanDon=null;
-
+        tvInfoCongThem.setText("##");
 
         SPRSupport.save("user",edUser.getText().toString(),this);
         SPRSupport.save("pass",edPass.getText().toString(),this);
@@ -246,15 +266,16 @@ public class SuaCodGhtkActivity extends MyActivity {
     }
 
     private void getInfo(String mMaDh) {
-
+            soDuCu=-1;
         //TaskNetGeneral.exTaskNotifyImportain("sads",context);
-
+        tvInfoCongThem.setText("##");
         wv.loadUrl("about:blank");
         BaseModel basemodel= new BaseModel(){
             @Override
             public void onSuccess(int taskType, Object data, String msg) {
                 super.onSuccess(taskType, data, msg);
                 closeProgressDialog();
+                Mlog.D(""+data);
                 try {
 
                     JSONObject jo = new JSONObject(""+data);
@@ -262,6 +283,7 @@ public class SuaCodGhtkActivity extends MyActivity {
                         return;
                     }
                     hiddenMoneyCrm=jo.getString("tien_hang_crm");
+                    soDuCu=Integer.parseInt(jo.getString("tien_da_nhan_crm"));
                     hiddenDHM=""+jo.get("order_id01");
                     edMadhCrm.setText(mMaDh);
                     edOidUpdate.setText(mMaDh);
@@ -270,8 +292,8 @@ public class SuaCodGhtkActivity extends MyActivity {
                     setValueOrderId1(mMaDh);
                     String vl="";
                     vl+="DHM"+jo.get("order_id01");
-                    vl+= "\nTiền đã nhận CRM: "+jo.getString("tien_da_nhan_crm");
-                    vl+= "\nTổng tiền hàng CRM: <Click vào> ";
+                    vl+= "\nsố dư cũ CRM: "+MoneySupport.moneyDot(""+soDuCu);
+                    vl+= "\nTổng tiền đơn hàng CRM: <Click vào> ";
                     vl+="\nTrạng thái crm: "+jo.get("crm_trangthai");
                     if (maVanDon!=null){
                         int freeShip = jo.getInt("ghtk_is_freeship");
@@ -428,7 +450,7 @@ public class SuaCodGhtkActivity extends MyActivity {
 
         taskNetOrder.exe();
 
-        String sq="mavandon %s, dhm%s. pick_money %s, is_freeship %s";
+        String sq="mavandon %s, dhm%s. "+tvInfoCongThem.getText();
         notifiQueCoNguoiSuaCod(String.format(sq,maVanDon,curMaDH,pickMoney,isFreeship));
 
     }
@@ -451,7 +473,6 @@ public class SuaCodGhtkActivity extends MyActivity {
 
         TaskGeneralTh.exeTaskStatement(context,sql,"sadas",123,new Model());
 
-
     }
 
     public void clickUpdateCrm(View view) {
@@ -460,6 +481,7 @@ public class SuaCodGhtkActivity extends MyActivity {
         showProgressDialog();
         if (edMadhCrm.getText().toString().isEmpty()||edMoneyCrm.getText().toString().isEmpty()){
             showToast("chưa nhập thông tin");
+            closeProgressDialog();
             return;
         }
         BaseModel basemodel= new BaseModel(){
@@ -482,13 +504,19 @@ public class SuaCodGhtkActivity extends MyActivity {
         };
 
         BaseObject oj = new BaseObject();
-        oj.set("money_received",edMoneyCrm.getText().toString());
+        int c1= parseInt(edMoneyCrm.getText().toString())+soDuCu;
+        if (c1<0){
+            showToast("Có lỗi 878 ");
+            return;
+        }
+        oj.set("money_received",c1);
 
         TaskNetOrder taskNetOrder = new TaskNetOrder(basemodel, TaskNetOrder.TASK_UPDATE,this);
         taskNetOrder.setTaskParram("order_id",edMadhCrm.getText());
         taskNetOrder.setTaskParram("oj",oj);
         taskNetOrder.exe();
-        notifiQueCoNguoiSuaCod(String.format("dhm%s. money_received %s",edMadhCrm.getText(),edMoneyCrm.getText().toString()));
+        String moneyInfo= MoneySupport.moneyEndK(edMoneyCrm.getText().toString())+""  ;
+        notifiQueCoNguoiSuaCod(String.format("dhm%s. money_received "+tvInfoCongThem.getText(),edMadhCrm.getText(),edMoneyCrm.getText().toString()));
     }
 
 
@@ -498,7 +526,9 @@ public class SuaCodGhtkActivity extends MyActivity {
         String oidVl=edOidUpdate.getText().toString();
         String trackingVl=edTrackingUpdate.getText().toString();
         if (oidVl.length()==0||trackingVl.length()==0){
+
             showToast("Chưa nhập dữ liệu"); return;
+
         }
 
         BObject ojUpdate= new BObject();
@@ -525,4 +555,21 @@ public class SuaCodGhtkActivity extends MyActivity {
         edOidUpdate.setText("");
         edTrackingUpdate.setText("");
     }
+
+    private String dot(String moneyStr){
+        return  MoneySupport.moneyDot(moneyStr);
+    }
+    private String dot(int moneyStr){
+        return  MoneySupport.moneyDot(""+moneyStr);
+    }
+    private int parseInt(String s){
+        if (s==null||s.isEmpty()) return Integer.MIN_VALUE;
+        try {
+            int a = Integer.parseInt(s);
+            return a;
+        }catch (Exception e){
+            return Integer.MIN_VALUE;
+        }
+    }
+
 }

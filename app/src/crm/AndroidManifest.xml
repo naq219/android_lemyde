@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
@@ -72,6 +73,7 @@
         </activity>
 
         <activity
+            android:launchMode="singleTask"
             android:name=".nhacviec.ThanhHanhNiemActivity"
             android:parentActivityName=".MainActivity"
             android:exported="true" />

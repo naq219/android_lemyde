@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="5dp"
+    android:background="#D0D1D1"
     android:orientation="vertical"
     tools:context=".nhacviec.ThanhHanhNiemActivity">
 
-   <LinearLayout
+   <RelativeLayout
        android:layout_width="match_parent"
       android:orientation="horizontal"
        android:layout_marginBottom="10dp"
@@ -20,11 +21,39 @@
           android:layout_height="wrap_content"/>
 
       <Button
+          android:layout_toRightOf="@+id/btnStart"
           android:layout_marginLeft="10dp"
           android:layout_width="wrap_content"
           android:text="Stop"
           android:id="@+id/btnStop"
           android:layout_height="wrap_content"/>
+
+      <ImageView
+          android:id="@+id/btnSetting"
+          android:layout_width="50dp"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:src="@drawable/baseline_settings_black_24dp" />
+   </RelativeLayout>
+   <LinearLayout
+       android:id="@+id/lnSetting"
+       android:layout_width="match_parent"
+       android:visibility="gone"
+       android:orientation="horizontal"
+       android:layout_height="wrap_content">
+      <Button
+          android:layout_width="wrap_content"
+          android:text="Sao lưu"
+          android:id="@+id/btnCopyBackup"
+          android:layout_height="wrap_content"/>
+      <Button
+          android:layout_width="wrap_content"
+          android:text="Phục hồi"
+          android:layout_marginLeft="5dp"
+          android:id="@+id/btnRestore"
+          android:layout_height="wrap_content"/>
+
    </LinearLayout>
    <androidx.recyclerview.widget.RecyclerView
 

@@ -2,78 +2,99 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#74EBEBEB"
-
+    android:paddingBottom="3dp"
+    android:paddingRight="2dp"
+    android:paddingLeft="2dp"
     android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:paddingLeft="10dp"
-        android:background="#F5DEF5"
-        android:layout_gravity="center_horizontal"
-        android:paddingRight="10dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_bogoc1"
         android:layout_height="wrap_content">
-        <EditText
-            android:layout_width="wrap_content"
-            android:id="@+id/edMin"
-            android:paddingLeft="10dp"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:paddingRight="10dp"
-            android:background="@drawable/edittext_rounded_corners_border"
-            android:hint="Min"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:background="@drawable/edittext_rounded_corners_border"
-
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:layout_width="wrap_content"
-            android:id="@+id/edMax"
-            android:layout_marginLeft="20dp"
-            android:hint="Max"
-            android:layout_height="wrap_content"/>
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:text="Enable"
-            android:id="@+id/checkbox"
-            android:layout_marginLeft="10dp"
-            android:layout_height="wrap_content"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:id="@+id/tvEnable"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:id="@+id/tvContent"
+            android:paddingLeft="5dp"
+            android:textColor="@color/gia3"
+            android:textSize="18sp"
+            android:paddingRight="5dp"
+            android:maxLines="1"
 
-            android:layout_marginLeft="20dp"
-            android:text="Lưu"
             android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+
+            android:layout_gravity="center_horizontal"
+            android:paddingRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="wrap_content"
+                android:id="@+id/edMin"
+                android:paddingLeft="10dp"
+                android:paddingBottom="5dp"
+                android:focusedByDefault="false"
+
+                android:paddingTop="5dp"
+                android:textSize="18sp"
+                android:paddingRight="10dp"
+                android:background="@drawable/edittext_rounded_corners_border"
+                android:hint="Min"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:focusedByDefault="false"
+
+                android:background="@drawable/edittext_rounded_corners_border"
+                android:textSize="18sp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:layout_width="wrap_content"
+                android:id="@+id/edMax"
+                android:layout_marginLeft="5dp"
+                android:hint="Max"
+                android:layout_height="wrap_content"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:text="Chạy"
+                android:id="@+id/checkbox"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tvEnable"
+                android:visibility="gone"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:id="@+id/btnSave"
+
+                android:layout_marginLeft="20dp"
+                android:text="Lưu"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <EditText
+            android:hint="Nội dung"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/edContent"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="@drawable/edittext_rounded_corners_border"
+            android:layout_width="match_parent"
+            android:inputType="textMultiLine"
+            android:layout_height="wrap_content"/>
+
+
+        <View
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:background="#C2C0C0"
+            android:layout_marginBottom="10dp"
+            android:layout_height="1px"/>
     </LinearLayout>
-    <EditText
-        android:hint="Nội dung"
-        android:id="@+id/edContent"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:layout_width="match_parent"
-        android:inputType="textMultiLine"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:id="@+id/tvContent"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:maxLines="5"
-
-        android:layout_height="wrap_content"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:background="#C2C0C0"
-        android:layout_marginBottom="10dp"
-        android:layout_height="1px"/>
 </LinearLayout>

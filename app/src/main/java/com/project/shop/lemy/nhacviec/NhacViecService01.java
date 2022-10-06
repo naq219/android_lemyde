@@ -126,7 +126,7 @@ public class NhacViecService01 extends Service {
     }
 
     public void initView() {
-
+        Mlog.D("initView");
         view1123 = new NhacViecViewLayout(this, iContext);
         view= view1123.getView();
 
@@ -296,7 +296,7 @@ public class NhacViecService01 extends Service {
         return START_NOT_STICKY;
     }
 
-    private Notification tmpcreateNotifi(String contentText) {
+    protected Notification tmpcreateNotifi(String contentText) {
         Intent notificationIntent = new Intent(this, NhacViecReiceiver.class);
         PendingIntent pendingIntent =PendingIntent.getBroadcast(this,123,notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
         Notification notification = new NotificationCompat.Builder(this, "nhacviec_chanel")

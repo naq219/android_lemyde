@@ -4,6 +4,7 @@
 //import android.app.NotificationChannel;
 //import android.app.NotificationManager;
 //import android.app.PendingIntent;
+//import android.app.Service;
 //import android.content.Intent;
 //import android.graphics.PixelFormat;
 //import android.os.Build;
@@ -36,7 +37,7 @@
 //import java.util.Timer;
 //import java.util.TimerTask;
 //
-//public class NhacViecServicecopy extends NhacViecService01 {
+//public class NhacViecService extends Service {
 //    public static boolean tagOpenView=false;
 //    private WindowManager mWindowManager;
 //    private View view;
@@ -65,13 +66,13 @@
 //
 //
 //
-//        NotificationCompat.Builder builder1 = new NotificationCompat.Builder(NhacViecServicecopy.this, "Chanh Niem")
+//        NotificationCompat.Builder builder1 = new NotificationCompat.Builder(NhacViecService.this, "Chanh Niem")
 //                .setSmallIcon(R.drawable.notiyicon)
 //                .setContentTitle("Đây là Title")
 //                .setContentText(" nội dung của bạn là gì ")
 //                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 //
-//        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(NhacViecServicecopy.this);
+//        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(NhacViecService.this);
 //
 //// notificationId is a unique int for each notification that you must define
 //        notificationManager.notify(44, builder1.build());
@@ -196,7 +197,7 @@
 //
 //    public void initView() {
 //
-//         view1123 = new NhacViecViewLayout(this, NhacViecServicecopy.this);
+//         view1123 = new NhacViecViewLayout(this, NhacViecServicec.this);
 //        view= view1123.getView();
 //
 //        //Add the view to the window.

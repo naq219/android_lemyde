@@ -131,7 +131,7 @@ public class MainActivity extends MainActivityLayout {
 
     public void innitDb() {
         if (PermissionSupport.hasPermissionGranted(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE))
-            DbSupport.init(getApplicationContext());
+            tvTitle.post(() -> {DbSupport.init(getApplicationContext());});
     }
 
 

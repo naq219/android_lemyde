@@ -2,12 +2,14 @@ package com.project.shop.lemy.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lemy.telpoo2lib.model.BObject;
@@ -15,12 +17,15 @@ import com.lemy.telpoo2lib.model.Model;
 import com.project.shop.lemy.BuildConfig;
 import com.project.shop.lemy.R;
 import com.project.shop.lemy.Task.TaskGeneralTh;
+import com.project.shop.lemy.donhang.ChiTietDonHangActivity;
 import com.project.shop.lemy.helper.MySpr;
+import com.project.shop.lemy.helper.MyUtils;
 import com.project.shop.lemy.listener.ListenBack;
 import com.project.shop.lemy.nhacviec.NhacViecService;
 import com.telpoo.frame.utils.Mlog;
 import com.telpoo.frame.utils.SPRSupport;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
 import java.util.ArrayList;
@@ -57,6 +62,7 @@ public class NhacViecAdapter extends RecyclerView.Adapter<NhacViecAdapter.ViewHo
         return new NhacViecAdapter.ViewHolder(itemView);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         String content = list.get(position).getAsString("content");
@@ -96,17 +102,23 @@ public class NhacViecAdapter extends RecyclerView.Adapter<NhacViecAdapter.ViewHo
 
 
         holder.content.setText("("+list.get(position).get("id")+") "+content);
+        holder.content.setOnLongClickListener(view -> {
+            MyUtils.copyToClipboard(holder.content.getText().toString(),context);
+            return true;
+        });
 
         holder.tvNote.setText(note);
-//        holder.content.setOnClickListener(view -> {
-//            String check= list.get(position).convert2NetParramsNotEncode();
-//            if (check.toLowerCase().contains("dhm")){
-//                String dhm= ""+StringUtils.substringBetween(check,"DHM","#");
-//
-//                if (dhm.length()>0)
-//                    ChiTietDonHangActivity.startActivity(context,dhm);
-//            }
-//        });
+
+        holder.content.setOnLongClickListener(view -> {
+            String check= list.get(position).convert2NetParramsNotEncode();
+            if (check.toLowerCase().contains("dhm")){
+                String dhm= ""+ StringUtils.substringBetween(check,"DHM","#");
+
+                if (dhm.length()>0)
+                    ChiTietDonHangActivity.startActivity(context,dhm);
+            }
+            return true;
+        });
 
         holder.btnDone.setOnClickListener(view -> {
             listenClickDone.OnListenBack(list.get(position));
@@ -193,8 +205,8 @@ public class NhacViecAdapter extends RecyclerView.Adapter<NhacViecAdapter.ViewHo
 
 
 
-        String check1="1";
-        String check2="1";
+        String check1="";
+        String check2="";
         for (BObject oj :
                 list) {
             check1+=oj.convert2NetParramsNotEncode();

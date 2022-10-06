@@ -25,13 +25,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <TextView
-            android:layout_width="wrap_content"
-            android:text="Kiểm tra"
-            android:padding="10dp"
-            android:id="@+id/tmp1"
-            android:background="#0E6C6A6C"
+            android:visibility="gone"
+            android:id="@+id/tmpinfo"
+            android:textColor="#AB47BC"
+
+            android:layout_margin="5dp"
             android:layout_centerHorizontal="true"
-            android:layout_height="wrap_content"/>
+           style="@style/textbase"/>
+        <TextView
+            android:id="@+id/tmp1"
+            android:layout_below="@+id/tmpinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#2A6C6A6C"
+            android:padding="10dp"
+            android:text="Kiểm tra" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"

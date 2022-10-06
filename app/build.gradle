@@ -65,7 +65,7 @@ android {
         nhapdon {
 
             applicationId "com.lemyshop.nhapdon"
-            versionCode 40
+            versionCode 41
 
         }
 
@@ -73,7 +73,7 @@ android {
 
             flavorDimensions "default"
             applicationId "com.lemyshop3"
-            versionCode 80
+            versionCode 82
 
             Random random = new Random()
             Calendar car= Calendar.getInstance();

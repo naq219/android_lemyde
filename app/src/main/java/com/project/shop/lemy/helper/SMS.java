@@ -8,7 +8,7 @@ import java.util.Date;
 class SMS extends BObject {
     private final String phoneNumber;
     private final String smsContent;
-    private final int type;
+    private  int type;
     private final String date;
 
     public SMS(String phoneNumber, String smsContent, int type, String date) {
@@ -32,5 +32,9 @@ class SMS extends BObject {
 
     public String getDate() {
         return date;
+    }
+
+    public void setType(int i) {
+        this.type=i;
     }
 }

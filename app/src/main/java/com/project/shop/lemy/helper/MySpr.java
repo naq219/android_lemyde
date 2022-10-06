@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 
 import com.lemy.telpoo2lib.utils.SprUtils;
+import com.telpoo.frame.utils.SPRSupport;
 
 public class MySpr extends SprUtils {
 //hhh
@@ -32,13 +33,14 @@ public class MySpr extends SprUtils {
     }
 
     public static boolean isEnableShowTaskCK(Context context){
-        String smsfilter= SprUtils.getString("keyphonebank",context);
-
-        if (smsfilter!=null&&smsfilter.length()>0&&smsfilter.toLowerCase().contains("vietcom1")) return false;
-
-        if (smsfilter!=null&&smsfilter.length()>0)
-            return true;
-
-        return false;
+        return SPRSupport.getBool("show_tienck",context,false);
+//        String smsfilter= SprUtils.getString("keyphonebank",context);
+//
+//        if (smsfilter!=null&&smsfilter.length()>0&&smsfilter.toLowerCase().contains("vietcom1")) return false;
+//
+//        if (smsfilter!=null&&smsfilter.length()>0)
+//            return true;
+//
+//        return false;
     }
 }

@@ -17,7 +17,9 @@ import com.project.shop.lemy.Task.SqlTaskGeneral;
 import com.project.shop.lemy.Task.TaskGeneralTh;
 import com.project.shop.lemy.adapter.NhacViecAdapter;
 import com.project.shop.lemy.common.SprSupport;
+import com.project.shop.lemy.helper.MyUtils;
 import com.telpoo.frame.utils.SPRSupport;
+import com.telpoo.frame.utils.TimeUtils;
 
 import org.json.JSONArray;
 
@@ -34,20 +36,19 @@ public class NhacViecViewLayout {
     View v;
     NhacViecAdapter adapter;
     View dl_yes,dl_no,vg_dl,root;
-    TextView dl_title, tvKiemTra;
+    TextView dl_title, tvKiemTra,tmpinfo;
     View vgOpen;
     //check lien tuc
     int countClt=-1;
     long lastCheck=0;
-    private NhacViecService nvService;
 
     public NhacViecViewLayout(Context context, NhacViecService nvService){
         codenv = SPRSupport.getString("codenv",context,"");
-        this.nvService = nvService;
         this.context = context;
         v= LayoutInflater.from(context).inflate(R.layout.nhacviec_widget, null);
         lv = v.findViewById(R.id.lv);
         tvKiemTra = v.findViewById(R.id.tmp1);
+        tmpinfo= v.findViewById(R.id.tmpinfo);
         dl_title= v.findViewById(R.id.dl_title);
         dl_yes= v.findViewById(R.id.dl_yes);
         dl_no= v.findViewById(R.id.dl_no);
@@ -117,8 +118,35 @@ public class NhacViecViewLayout {
 
         tvKiemTra.setOnClickListener(view -> {
             countClt=120;
+            checkOnline();
+        });
+        tvKiemTra.setOnLongClickListener(view -> {
+            String sql="update nhacviec.task t set t.active =0 where t.type =4";
+            TaskGeneralTh.exeTaskStatement(context,sql,"sdasd",123,new Model());
+            tvKiemTra.postDelayed(() -> {
+                checkViec();
+            },1000);
+            return true;
         });
 
+    }
+
+    private void checkOnline() {
+        String sql ="select lastrun_collect_money from nhacviec.checkservice";
+        Model model=new Model(){
+            @Override
+            public void onSuccess(int taskType, Object data, String msg, Integer queue) {
+                super.onSuccess(taskType, data, msg, queue);
+
+                try {
+                    long timet= ((JSONArray)data).optJSONObject(0).optLong("lastrun_collect_money");
+                    tmpinfo.setText("Online cách đây "+ TimeUtils.milisend2Date(timet+"000","dd/MM/yyyy HH:mm:ss"));
+                    tmpinfo.setVisibility(View.VISIBLE);
+                }
+                catch (Exception e){};
+            }
+        };
+        TaskGeneralTh.exeTaskGetApi(model,context,sql);
     }
 
 
@@ -129,7 +157,9 @@ public class NhacViecViewLayout {
     }
 
     private void checkViec() {
-        String sql="SELECT * FROM "+ BuildConfig.db_nhacviec+ ".task WHERE active =1 and type =3 ";
+        String sql="SELECT * FROM "+ BuildConfig.db_nhacviec+ ".task WHERE active =1 and type in (3) ";
+        if (SprSupport.isAdmin(context))
+            sql="SELECT * FROM "+ BuildConfig.db_nhacviec+ ".task WHERE active =1 and type in (3,4) ";
 
         Model model=new Model(){
             @Override

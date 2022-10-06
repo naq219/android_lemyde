@@ -139,23 +139,23 @@ public class TaskNetGeneral extends BaseTask {
 
     private void loginGhtk() {
         Connection.Response res=null;
-        try {
-            res = Jsoup.connect("https://khachhang.giaohangtietkiem.vn/khach-hang/dang_nhap")
-                    .data("data[Shop][email]", getTaskParramString("user"))
-                    .data("data[Shop][password]", getTaskParramString("pass"))
-                    .followRedirects(false)
-                    .method(Connection.Method.POST)
-                    .execute();
-            Document doc = res.parse();
-
-            Connection.Response res1 = Jsoup.connect(res.header("location")).method(Connection.Method.GET).followRedirects(true).execute();
-            Document doc1 = res1.parse();
-            SuaCodGhtkActivity.cookieGhtk= res1.cookie("KHSESSID");
-            SuaCodGhtkActivity.lastTimeLogin= Calendar.getInstance().getTimeInMillis();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            res = Jsoup.connect("https://khachhang.giaohangtietkiem.vn/khach-hang/dang_nhap")
+//                    .data("data[Shop][email]", getTaskParramString("user"))
+//                    .data("data[Shop][password]", getTaskParramString("pass"))
+//                    .followRedirects(false)
+//                    .method(Connection.Method.POST)
+//                    .execute();
+//            Document doc = res.parse();
+//
+//            Connection.Response res1 = Jsoup.connect(res.header("location")).method(Connection.Method.GET).followRedirects(true).execute();
+//            Document doc1 = res1.parse();
+//            SuaCodGhtkActivity.cookieGhtk= res1.cookie("KHSESSID");
+//            SuaCodGhtkActivity.lastTimeLogin= Calendar.getInstance().getTimeInMillis();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         if (res==null)
             Mlog.D("loi roi");
 

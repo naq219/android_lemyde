@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,7 @@ import com.project.shop.lemy.helper.StringHelper;
 import com.project.shop.lemy.listener.ListenBack;
 import com.project.shop.lemy.listener.Listerner;
 import com.project.shop.lemy.xuatnhapkho.NhapKhoSupport;
+import com.telpoo.frame.delegate.Idelegate;
 import com.telpoo.frame.object.BaseObject;
 import com.telpoo.frame.utils.Mlog;
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
@@ -182,6 +184,34 @@ public class DialogSupport {
                 });
 
         builder.show();
+    }
+
+    /**
+     * addtelpoo
+
+     * @param context
+     * @return
+     */
+
+    public static  AlertDialog inputText(Context context,String s, Idelegate idelegate){
+        if (idelegate==null) idelegate= new Idelegate() {
+            @Override
+            public void callBack(Object value, int where) {
+
+            }
+        };
+        final EditText input = new EditText(context);
+        input.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+        input.setText(s);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setView(input);
+        builder.setCancelable(true);
+        Idelegate finalIdelegate = idelegate;
+        builder.setNegativeButton("OK",(dialogInterface, i) -> {
+            finalIdelegate.callBack(input.getText().toString(),1);
+        });
+        builder.show();
+        return builder.create();
     }
 
     public static AlertDialog dialogCustom(View v, final Context context) {
