@@ -22,7 +22,9 @@ import com.nabinbhandari.android.permissions.PermissionHandler;
 import com.nabinbhandari.android.permissions.Permissions;
 import com.project.shop.lemy.common.ScreenSupport;
 import com.project.shop.lemy.common.SprSupport;
+import com.project.shop.lemy.common.TestActivity;
 import com.project.shop.lemy.db.DbSupport;
+import com.project.shop.lemy.donhang.ChiTietDonHangActivity;
 import com.project.shop.lemy.donhang.DonHangFmv2;
 import com.project.shop.lemy.helper.MySpr;
 import com.project.shop.lemy.helper.PermissionSupport;
@@ -95,8 +97,8 @@ public class MainActivity extends MainActivityLayout {
         }, 300);
 
 
-        //ChiTietDonHangActivity.startActivity(MainActivity.this,"22203");
-        //startActivity(new Intent(this, ThanhHanhNiemActivity.class));
+        ChiTietDonHangActivity.startActivity(MainActivity.this,"60023");
+       // startActivity(new Intent(this, TestActivity.class));
 
         startService(new Intent(this, NhacViecService.class));
     }

@@ -6,11 +6,16 @@ import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -32,6 +37,7 @@ import com.lemy.telpoo2lib.model.BObject;
 import com.lemy.telpoo2lib.model.Model;
 import com.lemy.telpoo2lib.model.Task;
 import com.lemy.telpoo2lib.model.TaskParams;
+import com.lemy.telpoo2lib.net.Dataget;
 import com.project.shop.lemy.R;
 import com.project.shop.lemy.SwipeBackActivity;
 import com.project.shop.lemy.Task.TaskGeneralTh;
@@ -44,20 +50,25 @@ import com.project.shop.lemy.Task.TaskSupport;
 import com.project.shop.lemy.activity.IncludeFmActivity;
 
 import com.project.shop.lemy.adapter.DetailAdapter2;
+import com.project.shop.lemy.adapter.SimpleAdapterTextImage;
 import com.project.shop.lemy.bean.CustomerObj;
 import com.project.shop.lemy.bean.Detail_orders;
 import com.project.shop.lemy.bean.OrderObj;
 import com.project.shop.lemy.chucnangkhac.SuaCodGhtkActivity;
+import com.project.shop.lemy.common.PoupMenuSupport;
 import com.project.shop.lemy.common.SprSupport;
 import com.project.shop.lemy.dialog.DialogSupport;
 import com.project.shop.lemy.helper.MoneySupport;
+import com.project.shop.lemy.helper.MyJsonSupport;
 import com.project.shop.lemy.helper.OrderHelper;
 import com.project.shop.lemy.xuatnhapkho.ViewChuyenKhoang;
 import com.project.shop.lemy.xuatnhapkho.XuatKhoActivity;
 import com.telpoo.frame.model.BaseModel;
 import com.telpoo.frame.object.BaseObject;
+import com.telpoo.frame.utils.ClipboardSupport;
 import com.telpoo.frame.utils.JsonSupport;
 import com.telpoo.frame.utils.KeyboardSupport;
+import com.telpoo.frame.utils.Mlog;
 import com.telpoo.frame.utils.SPRSupport;
 import com.telpoo.frame.utils.TimeUtils;
 import com.telpoo.frame.utils.ViewUtils;
@@ -68,6 +79,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class ChiTietDonHangActivity extends SwipeBackActivity {
 
@@ -77,6 +89,7 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
     View tvSendSMS, tvInDH, btnDayVanChuyen, viewXuat,vAddThuShip;
     TextView tvMaDh, tvShop, tvDiaChi, tvTongTien,tvThongBao;
     private Long curQueue = null;
+    BaseObject ojCustomer;
     String orderId;
     private BaseObject oj;
     private Context context;
@@ -652,7 +665,7 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
                 tvThongBao.setText("Đơn này đang lưu kho ?");
         }
         try {
-            BaseObject ojCustomer = JsonSupport.jsonObject2BaseOj(oj.get("customer"));
+             ojCustomer = JsonSupport.jsonObject2BaseOj(oj.get("customer"));
             curPhone= ojCustomer.get(CustomerObj.phone);
             tvDiaChi.setText(ojCustomer.get(CustomerObj.name) + "(" + ojCustomer.get(CustomerObj.Ten_fb) + ") * " + ojCustomer.get(CustomerObj.phone) + " * " + ojCustomer.get("full_address"));
 
@@ -685,6 +698,141 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+       switch (item.getItemId()){
+           case R.id.action_do:
+               gotoChitietDonHang();
+               return true;
+           case R.id.action_message:
+               try {
+                   sendFbMessage("",ojCustomer.get("facebook_id"),ojCustomer.get("nick_facebook"));
+               } catch (JSONException e) {
+                   e.printStackTrace();
+               }
+
+               return true;
+       }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void sendFbMessage(String filter, String fid,String url) throws JSONException {
+        JSONObject jo3= new JSONObject();
+        JSONArray ja = new JSONArray();
+        jo3.put("text","Copy url facebook: \n"+"http://m.facebook.com/"+fid);
+        jo3.put("package","url");
+        jo3.put("url","http://m.facebook.com/"+fid);
+        if ((""+fid).length()>5) ja.put(jo3);
+        jo3= new JSONObject();
+        jo3.put("text","Click  Sao chép url facebook: \n"+url);
+        jo3.put("package","url");
+        jo3.put("url",url);
+        if(url!=null&&(""+fid).length()<5) ja.put(jo3);
+
+        JSONArray jaClicked = new JSONArray();
+        JSONArray jaTmp6=new JSONArray();
+        try {
+             jaTmp6 = new JSONArray(SPRSupport.getString("savedCLickFbapp", context, "sd"));
+        } catch (Exception e){};
+
+        ja= MyJsonSupport.jaAddAll(ja,jaTmp6);
+        jaClicked=new JSONArray(ja.toString());
+
+
+        List<PackageInfo> packs = getPackageManager().getInstalledPackages(0);
+        for (int i = 0; i < packs.size(); i++) {
+            PackageInfo p = packs.get(i);
+            String appName = p.applicationInfo.loadLabel(getPackageManager()).toString();
+            Drawable icon = p.applicationInfo.loadIcon(getPackageManager());
+            String packages = p.applicationInfo.packageName;
+            if ((isSystemPackage(p))) continue;
+            if(!packages.contains(filter))continue;
+
+            if (jaClicked.toString().contains(packages)) {
+                for (int j = 0; j < jaClicked.length(); j++) {
+                    try {
+                        if(packages.contains(jaClicked.optJSONObject(j).optString("package","asdad"))){
+                            ja.getJSONObject(j).put("img",icon);
+                            break;
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                continue;
+            }
+            try {
+                JSONObject jo = new JSONObject();
+                jo.put("text",appName+"\n"+packages);
+                jo.put("package",packages);
+                jo.put("img",icon);
+                ja.put(jo);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        SimpleAdapterTextImage adapter = new SimpleAdapterTextImage(context,R.layout.item_text_image);
+        adapter.setData(ja);
+        AlertDialog dl = DialogSupport.dialogCustom(adapter.initView(), context);
+        adapter.setOnclick(null,(position, dataPost) -> {
+            JSONObject joClick1= (JSONObject) dataPost;
+            dl.dismiss();
+            if (joClick1.optString("package","").equals("url")){
+                ClipboardSupport.copy(context,joClick1.optString("url","Không có url!"));
+                showToast("Đã sao chép : "+joClick1.optString("url",""));
+                return;
+            }
+            JSONArray jaC = new JSONArray();
+            try {
+                 jaC = new JSONArray(SPRSupport.getString("savedCLickFbapp", context, "sd"));
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                JSONArray jaC2= new JSONArray();
+                jaC2.put(joClick1);
+                for (int k = 0; k < jaC.length(); k++) {
+                    jaC2.put(jaC.opt(k));
+                }
+                SPRSupport.save("savedCLickFbapp",jaC2.toString(),context);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Uri location = Uri.parse("fb://profile/"+fid);
+            Intent intent = new Intent(Intent.ACTION_VIEW, location);
+            intent.setPackage(joClick1.optString("package"));
+            try {
+                startActivity(intent);
+            }catch (Exception e){
+                 location = Uri.parse("https://m.facebook.com/"+fid);
+                 intent = new Intent(Intent.ACTION_VIEW, location);
+                intent.setPackage(joClick1.optString("package"));
+                try {
+                    startActivity(intent);
+                } catch (Exception e1){showToast("Không mở được !");};
+            }finally {
+
+            }
+
+
+        });
+
+        adapter.setOnLongclick(null,(position, dataPost) -> {
+            SPRSupport.save("savedCLickFbapp","2133",context);
+        });
+
+
+    }
+
+    private boolean isSystemPackage(PackageInfo pkgInfo) {
+        return (pkgInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
+    }
+
+    private void gotoChitietDonHang() {
         View v = getLayoutInflater().inflate(R.layout.view_edsearch_dhm,null);
         EditText ed = v.findViewById(R.id.ed);
         View btn = v.findViewById(R.id.btn);
@@ -704,7 +852,6 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
             }
 
         });
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
