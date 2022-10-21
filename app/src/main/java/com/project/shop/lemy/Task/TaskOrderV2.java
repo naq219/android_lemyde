@@ -8,6 +8,7 @@ import com.lemy.telpoo2lib.model.Task;
 import com.lemy.telpoo2lib.model.TaskParams;
 import com.lemy.telpoo2lib.net.Dataget;
 import com.lemy.telpoo2lib.net.NetSupport;
+import com.project.shop.lemy.BuildConfig;
 import com.project.shop.lemy.Net.MyUrl2;
 import com.project.shop.lemy.Net.NetData;
 import com.project.shop.lemy.Net.NetSupport2;
@@ -110,6 +111,7 @@ public class TaskOrderV2 extends Task {
         oj.set("where",rqWhere);
         oj.set("limit",rqLimit);
         oj.set("orderby",rqOrderby);
+        oj.set("app_version", BuildConfig.VERSION_CODE);
         return NetSupport.getInstance().simpleGet(NetSupport2.getBaseUrlv2()+MyUrl2.orderSearch+"?"+oj.convert2NetParrams(),null);
 
     }

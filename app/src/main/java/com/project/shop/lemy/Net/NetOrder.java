@@ -1,5 +1,6 @@
 package com.project.shop.lemy.Net;
 
+import com.project.shop.lemy.BuildConfig;
 import com.telpoo.frame.object.BaseObject;
 
 import org.json.JSONException;
@@ -50,7 +51,7 @@ public class NetOrder extends NetSupport2{
 
 
     public static NetData getDetail(String order_id1) {
-        String url= getBaseUrlv2()+"v2/order/"+order_id1;
+        String url= getBaseUrlv2()+"v2/order/"+order_id1+"app_version="+ BuildConfig.VERSION_CODE;
         return simpleGet(url);
 
     }

@@ -13,6 +13,7 @@ import com.telpoo.frame.model.BaseModel;
 import com.telpoo.frame.object.BaseObject;
 import com.telpoo.frame.utils.JsonSupport;
 import com.telpoo.frame.utils.SPRSupport;
+import com.telpoo.frame.utils.TimeUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -126,7 +127,18 @@ public class OrderHelper {
             }
         });
     }
-
+    public static int getStatusColor(Object status){
+        int status1= Integer.parseInt(""+status);
+        int statusColor=Color.GREEN;
+        switch (status1){
+            case 1: statusColor= Color.GREEN;break;
+            case 2: statusColor= Color.parseColor("#D78E24");break;
+            case 3: statusColor= Color.CYAN;break;
+            case 4: statusColor= Color.RED;break;
+            case 5: statusColor= Color.parseColor("#D78E24");break;
+        }
+        return statusColor;
+    }
     public static String getStatusName(String status1){
         String name="Trạng thái ";
         int status= Integer.parseInt(status1);
@@ -155,4 +167,6 @@ public class OrderHelper {
         return stringBuilder.toString();
 
     }
+
+
 }

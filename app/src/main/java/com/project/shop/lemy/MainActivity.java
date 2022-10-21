@@ -97,7 +97,7 @@ public class MainActivity extends MainActivityLayout {
         }, 300);
 
 
-        ChiTietDonHangActivity.startActivity(MainActivity.this,"60023");
+        // ChiTietDonHangActivity.startActivity(MainActivity.this,"60023");
        // startActivity(new Intent(this, TestActivity.class));
 
         startService(new Intent(this, NhacViecService.class));

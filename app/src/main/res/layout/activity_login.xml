@@ -103,7 +103,6 @@
             android:theme="@style/Theme.App.Base" />
 
 
-
         <TextView
             android:id="@+id/btnLogin"
             style="@style/tv_dangnhap"
@@ -130,10 +129,11 @@
             android:layout_marginRight="30dp"
             android:background="#5fffffff"
             android:drawablePadding="5dp"
-            android:hint="Nhập lệnh"
+            android:hint=""
             android:padding="10dp"
 
             android:theme="@style/Theme.App.Base" />
+
         <EditText
             android:id="@+id/edFilterPhone"
             android:layout_width="match_parent"
@@ -142,7 +142,7 @@
             android:layout_marginTop="100dp"
             android:background="#5fffffff"
             android:drawablePadding="5dp"
-            android:hint="Không được nhập vào đây"
+            android:hint="SMS tiền Ck"
             android:padding="10dp"
             android:theme="@style/Theme.App.Base" />
 

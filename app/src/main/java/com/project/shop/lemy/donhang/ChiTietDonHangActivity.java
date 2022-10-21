@@ -38,6 +38,7 @@ import com.lemy.telpoo2lib.model.Model;
 import com.lemy.telpoo2lib.model.Task;
 import com.lemy.telpoo2lib.model.TaskParams;
 import com.lemy.telpoo2lib.net.Dataget;
+import com.project.shop.lemy.Net.NetSupport2;
 import com.project.shop.lemy.R;
 import com.project.shop.lemy.SwipeBackActivity;
 import com.project.shop.lemy.Task.TaskGeneralTh;
@@ -66,6 +67,7 @@ import com.project.shop.lemy.xuatnhapkho.XuatKhoActivity;
 import com.telpoo.frame.model.BaseModel;
 import com.telpoo.frame.object.BaseObject;
 import com.telpoo.frame.utils.ClipboardSupport;
+import com.telpoo.frame.utils.DeviceSupport;
 import com.telpoo.frame.utils.JsonSupport;
 import com.telpoo.frame.utils.KeyboardSupport;
 import com.telpoo.frame.utils.Mlog;
@@ -87,7 +89,7 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
     private DetailAdapter2 adapter;
     View btnTachDon;
     View tvSendSMS, tvInDH, btnDayVanChuyen, viewXuat,vAddThuShip;
-    TextView tvMaDh, tvShop, tvDiaChi, tvTongTien,tvThongBao;
+    TextView tvMaDh, tvShop, tvDiaChi, tvTongTien,tvThongBao,tvStatus;
     private Long curQueue = null;
     BaseObject ojCustomer;
     String orderId;
@@ -169,6 +171,7 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
 
 
     void init() {
+        tvStatus=  findViewById(R.id.tvStatus);
         tvThongBao= findViewById(R.id.tvThongBao);
         vAddThuShip = findViewById(R.id.vAddThuShip);
         tvSendSMS = findViewById(R.id.tvSendSMS);
@@ -604,6 +607,7 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
     }
 
     private void apiDetail(boolean silent) {
+        tvStatus.setText("--");
         if (!silent)
         showProcessDialog();
 //        else showToast("vại");
@@ -693,6 +697,8 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
         String freeship="Thu phí ship"; if(oj.getInt("free_ship")==1)freeship= "mps";
         tvTongTien.setText("Tổng: " + MoneySupport.moneyEndK(oj.get(OrderObj.total_amount)) + "  Đã ck: " + MoneySupport.moneyEndK(oj.get(OrderObj.money_received))+" * "+freeship);
 
+        tvStatus.setText(OrderHelper.getStatusName(oj.get("status"))+" ");
+        tvStatus.setBackgroundColor(OrderHelper.getStatusColor(oj.get("status")));
     }
 
     @Override
@@ -716,17 +722,47 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
     }
 
     private void sendFbMessage(String filter, String fid,String url) throws JSONException {
+        String pass= SprSupport.getCodeNv(context);
+        String tmp="{\n" +
+                "      \"ngocmai\": \"-3-7-10-41-34-26--------\",\n" +
+                "      \"nhungnguyen\": \"-1-12-31---------\",\n" +
+                "      \"quynhlien\": \"-31---------\",\n" +
+
+
+                "      \"lemai\": \"-41-34-26------\",\n" +
+                "      \"lehoa\": \"-43-42-45-46-51--------\",\n" +
+                "      \"ngan\": \"-4-2-6-11-39-17-----\",\n" +
+                "      \"thai93\": \"-47-48------\"\n" +
+                "    }";
+        JSONObject jo = new JSONObject(tmp);
+        if (!jo.has(pass)||!jo.optString(pass).contains("-"+shopId+"-")) {
+            TaskNetGeneral.exTaskNotifyImportain("Cố ý đọc URL FB "+DeviceSupport.getDeviceName()+" user:"+pass+" DHM"+orderId,context);
+        }
+
+
         JSONObject jo3= new JSONObject();
         JSONArray ja = new JSONArray();
         jo3.put("text","Copy url facebook: \n"+"http://m.facebook.com/"+fid);
         jo3.put("package","url");
         jo3.put("url","http://m.facebook.com/"+fid);
         if ((""+fid).length()>5) ja.put(jo3);
+        else {
+            showToast("Không lấy được url facebook !");
+        }
         jo3= new JSONObject();
-        jo3.put("text","Click  Sao chép url facebook: \n"+url);
+        jo3.put("text","copy url facebook: \n"+url);
         jo3.put("package","url");
         jo3.put("url",url);
         if(url!=null&&(""+fid).length()<5) ja.put(jo3);
+
+        if (oj.getInt("shop_id",-1)==2){
+            jo3= new JSONObject();
+            jo3.put("text","url Page Lemy");
+            jo3.put("package","url");
+            jo3.put("url","https://business.facebook.com/latest/inbox/messenger?selected_item_id="+fid);
+           ja.put(jo3);
+        }
+
 
         JSONArray jaClicked = new JSONArray();
         JSONArray jaTmp6=new JSONArray();
@@ -762,11 +798,11 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
                 continue;
             }
             try {
-                JSONObject jo = new JSONObject();
-                jo.put("text",appName+"\n"+packages);
-                jo.put("package",packages);
-                jo.put("img",icon);
-                ja.put(jo);
+                JSONObject jotmp3 = new JSONObject();
+                jotmp3.put("text",appName+"\n"+packages);
+                jotmp3.put("package",packages);
+                jotmp3.put("img",icon);
+                ja.put(jotmp3);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -785,23 +821,26 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
                 return;
             }
             JSONArray jaC = new JSONArray();
-            try {
-                 jaC = new JSONArray(SPRSupport.getString("savedCLickFbapp", context, "sd"));
 
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            if(joClick1.optInt("old",0)==0){
+                try {
+                    jaC = new JSONArray(SPRSupport.getString("savedCLickFbapp", context, "[]"));
+                    JSONArray jaC2= new JSONArray();
+                    joClick1.put("old",1);
+                    jaC2.put(joClick1);
+                    for (int k = 0; k < jaC.length(); k++) {
+                        jaC2.put(jaC.opt(k));
+                    }
+                    SPRSupport.save("savedCLickFbapp",jaC2.toString(),context);
 
-            try {
-                JSONArray jaC2= new JSONArray();
-                jaC2.put(joClick1);
-                for (int k = 0; k < jaC.length(); k++) {
-                    jaC2.put(jaC.opt(k));
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-                SPRSupport.save("savedCLickFbapp",jaC2.toString(),context);
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+
+
+
+
             Uri location = Uri.parse("fb://profile/"+fid);
             Intent intent = new Intent(Intent.ACTION_VIEW, location);
             intent.setPackage(joClick1.optString("package"));
@@ -822,7 +861,7 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
         });
 
         adapter.setOnLongclick(null,(position, dataPost) -> {
-            SPRSupport.save("savedCLickFbapp","2133",context);
+            SPRSupport.save("savedCLickFbapp","[]",context);
         });
 
 
@@ -916,7 +955,7 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
         String districk_id = ojCustomer.get(CustomerObj.district_id);
         if (districk_id.equals("1000") || districk_id.equals("1001")) {
             Toast.makeText(this, "Đơn Chưa có địa chỉ", Toast.LENGTH_SHORT).show();
-            TaskNetGeneral.exTaskNotifyImportain(orderIdDHM + "\n" + "chưa có địa chỉ"+ojCustomer.get(CustomerObj.phone), this);
+            //TaskNetGeneral.exTaskNotifyImportain(orderIdDHM + "\n" + "chưa có địa chỉ"+ojCustomer.get(CustomerObj.phone), this);
             return;
         }
 
@@ -927,7 +966,7 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
 
         if (thongBao.length()>0 && thongBao.contains("chanxuat")&&!SprSupport.isAdmin(context)){
             DialogSupport.dialogThongBao("Đơn này báo QUẾ trước khi xuất ",this,null);
-            TaskNetGeneral.exTaskNotifyImportain("đơn chặn XUẤT "+thongBao, this);
+            //TaskNetGeneral.exTaskNotifyImportain("đơn chặn XUẤT "+thongBao, this);
             return;
         }
 
@@ -941,7 +980,7 @@ public class ChiTietDonHangActivity extends SwipeBackActivity {
                 it.putExtra("ghichu", finalThongBao);
                 this.startActivity(it);
             });
-            TaskNetGeneral.exTaskNotifyImportain(orderIdDHM + "\n" + thongBao, this);
+            //TaskNetGeneral.exTaskNotifyImportain(orderIdDHM + "\n" + thongBao, this);
             return;
         }
 

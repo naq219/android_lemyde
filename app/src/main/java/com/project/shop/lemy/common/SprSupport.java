@@ -42,4 +42,8 @@ public class SprSupport {
         if (SprSupport.getPass(context).equals("10801@@@")) return true;
         return false;
     }
+
+    public static String getCodeNv(Context context) {
+        return SPRSupport.getString("codenv",context,"nn");
+    }
 }

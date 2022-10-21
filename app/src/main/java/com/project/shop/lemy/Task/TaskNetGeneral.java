@@ -54,8 +54,8 @@ public class TaskNetGeneral extends BaseTask {
 
         TaskNetGeneral taskNet = new TaskNetGeneral(baseModel,NOTIFI , context);
         taskNet.setTaskParram("content",content);
-        taskNet.setTaskParram("ott","telegram");
-        taskNet.setTaskParram("channel","@quan_trong");
+        taskNet.setTaskParram("ott","matrix");
+        taskNet.setTaskParram("channel","!pprlpUeQslSxvzNHNB:matrix.lemyde.com");
         taskNet.exe();
     }
     public static void exTaskNotifyOnlyMe(String content,Context context) {

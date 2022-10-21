@@ -73,7 +73,7 @@ android {
 
             flavorDimensions "default"
             applicationId "com.lemyshop3"
-            versionCode 82
+            versionCode 83
 
             Random random = new Random()
             Calendar car= Calendar.getInstance();
