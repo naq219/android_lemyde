@@ -5,10 +5,12 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Vibrator;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.TaskStackBuilder;
@@ -127,6 +129,10 @@ public class ThanHanhNiem {
     }
 
     protected void showNotifi(String title, String content) {
+
+//        Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+//        v.vibrate(300);
+
         Intent notificationIntent = new Intent(context, NhacViecReiceiver.THNReceiver.class);
         // PendingIntent pendingIntent =PendingIntent.getBroadcast(this,123,notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -142,7 +148,7 @@ public class ThanHanhNiem {
         NotificationCompat.Builder notification111 = new NotificationCompat.Builder(context, "thanhanhniem")
                 .setContentTitle(title)
                 .setContentText(content)
-
+                .setVibrate(new long[] { 100, 200})
                 .setSmallIcon(R.drawable.notiyicon);
         notification111.setContentIntent(resultPendingIntent);
 
@@ -159,6 +165,7 @@ public class ThanHanhNiem {
 
             notificationManager.createNotificationChannel(channel);
             notificationManager.notify(44, notification111.build());
+            playAssetSound(context,"ding1.mp3");
         }
     }
     
@@ -175,6 +182,23 @@ public class ThanHanhNiem {
     private void baoChuong() {
         MediaPlayer mediaPlayer = MediaPlayer.create(context, R.raw.dekeu);
         mediaPlayer.start();
+    }
+
+    public  void playAssetSound(Context context, String soundFileName) {
+        try {
+            MediaPlayer mediaPlayer = new MediaPlayer();
+
+            AssetFileDescriptor descriptor = context.getAssets().openFd(soundFileName);
+            mediaPlayer.setDataSource(descriptor.getFileDescriptor(), descriptor.getStartOffset(), descriptor.getLength());
+            descriptor.close();
+
+            mediaPlayer.prepare();
+            mediaPlayer.setVolume(1f, 1f);
+            mediaPlayer.setLooping(false);
+            mediaPlayer.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     

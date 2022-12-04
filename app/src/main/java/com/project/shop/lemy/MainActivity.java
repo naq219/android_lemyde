@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.provider.Settings;
 import android.widget.TextView;
 
@@ -101,6 +102,11 @@ public class MainActivity extends MainActivityLayout {
        // startActivity(new Intent(this, TestActivity.class));
 
         startService(new Intent(this, NhacViecService.class));
+
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(300);
+
+
     }
 
 
