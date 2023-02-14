@@ -8,6 +8,7 @@ import com.lemy.telpoo2lib.model.TaskParams;
 import com.lemy.telpoo2lib.net.Dataget;
 import com.lemy.telpoo2lib.net.NetSupport;
 import com.project.shop.lemy.BuildConfig;
+import com.telpoo.frame.utils.Mlog;
 
 public class TaskGeneralTh extends Task {
     public  static final int TASK_INSERT=TaskType.TASKTYPE_GENERALTH+1;
@@ -38,6 +39,9 @@ public class TaskGeneralTh extends Task {
     public static void exeTaskNhacViecSimple(Context context,Object type,String content,String param1,String param2){
         String sql=SqlTaskGeneral.INSERT_NHACVIEC_SIMPLE;
         sql=String.format(sql,type,content,param1,param2);
+
+        Mlog.D("naq2"+sql);
+
         exeTaskStatement(context,sql,"312sd",1123,new Model());
     }
 

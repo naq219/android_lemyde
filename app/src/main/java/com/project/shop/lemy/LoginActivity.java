@@ -3,6 +3,7 @@ package com.project.shop.lemy;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
@@ -49,6 +50,8 @@ public class LoginActivity extends SwipeBackActivity {
         });
 
         //DangNhap();
+
+        startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
     }
 
     void initView() {

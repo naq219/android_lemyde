@@ -89,7 +89,7 @@ public class AllSMSLoader implements LoaderManager.LoaderCallbacks<Cursor> {
             int typeSmsLoc = cursor.getInt(cursor.getColumnIndexOrThrow("type"));
             if (typeSmsLoc!=1) continue;
 
-            //if (!keyPhone.contains(phoneNumber)) continue;
+            if (!keyPhone.contains(phoneNumber)) continue;
 
             String smsContent = cursor.getString(cursor.getColumnIndexOrThrow("body"));
             //Date date = new Date(Long.parseLong(cursor.getString(cursor.getColumnIndexOrThrow("date"))));
@@ -98,10 +98,12 @@ public class AllSMSLoader implements LoaderManager.LoaderCallbacks<Cursor> {
             String ck=smsContent.toLowerCase();
             if (ck.contains("123888111 tai vpb tang")||ck.contains("0338783 +")||ck.contains("123888111 tai vpb +")){
                 sms.setType(3);
+                sms_All.add(sms);
+                countLimit++;
             }
-            countLimit++;
+
             if (countLimit>50) break;
-            sms_All.add(sms);
+
         }
 
 

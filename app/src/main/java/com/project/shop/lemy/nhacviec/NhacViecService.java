@@ -1,12 +1,15 @@
 package com.project.shop.lemy.nhacviec;
 
 import android.Manifest;
+import android.app.ActivityManager;
 import android.app.IntentService;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -17,6 +20,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -43,8 +47,10 @@ import java.io.File;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
+import java.util.SortedMap;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.TreeMap;
 
 public class NhacViecService extends Service {
     public static boolean tagOpenView=false;
@@ -79,16 +85,46 @@ public class NhacViecService extends Service {
         TimerTask taskCheckSms = new TimerTask() {
             @Override
             public void run() {
-                new Handler(Looper.getMainLooper()).post(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            checkSMSBank();
-                        }catch (Exception e){
-                            e.printStackTrace();
-                        }
-                    }
-                });
+//                new Handler(Looper.getMainLooper()).post(new Runnable() {
+//                    @Override
+//                    public void run() {
+//
+//                        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+//
+//                        List<ActivityManager.RunningTaskInfo> runningTasks = activityManager.getRunningTasks(10);
+//                        String s= runningTasks.get(0).topActivity.getPackageName();
+//                        Mlog.D("task1 "+s);
+//
+//                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+//                            UsageStatsManager usm = (UsageStatsManager)iContext.getSystemService(Context.USAGE_STATS_SERVICE);
+//                            long time = System.currentTimeMillis();
+//                            List<UsageStats> appList = usm.queryUsageStats(UsageStatsManager.INTERVAL_DAILY,  time - 10000*10000, time);
+//                            if (appList != null && appList.size() == 0) {
+//                                Log.d("Executed app ok4 ", "######### NO APP FOUND ##########" );
+//                            }
+//                            if (appList != null && appList.size() > 0) {
+//                                SortedMap<Long, UsageStats> mySortedMap = new TreeMap<Long, UsageStats>();
+//                                for (UsageStats usageStats : appList) {
+//                                    Log.d("Executed app", "usage stats executed : " +usageStats.getPackageName() + "\t\t ID: ");
+//                                    mySortedMap.put(usageStats.getLastTimeUsed(), usageStats);
+//                                }
+//                                if (mySortedMap != null && !mySortedMap.isEmpty()) {
+//                                    String currentApp = mySortedMap.get(mySortedMap.lastKey()).getPackageName();
+//                                    Mlog.D("ok4 "+currentApp);
+//
+//                                }
+//                            }
+//                        }
+//
+//
+//
+//                        try {
+//                            checkSMSBank();
+//                        }catch (Exception e){
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                });
             }
         };
 
@@ -96,6 +132,7 @@ public class NhacViecService extends Service {
             new Timer().schedule(taskCheckSms,1000,30*1000);
             showToast("Bắt đầu task đọc sms");
             checkSMSBank();
+
 
 
         }

@@ -1,5 +1,7 @@
 package com.project.shop.lemy.nhacviec;
 
+import android.app.ActivityManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,7 @@ import com.project.shop.lemy.Task.TaskGeneralTh;
 import com.project.shop.lemy.adapter.NhacViecAdapter;
 import com.project.shop.lemy.common.SprSupport;
 import com.project.shop.lemy.helper.MyUtils;
+import com.telpoo.frame.utils.Mlog;
 import com.telpoo.frame.utils.SPRSupport;
 import com.telpoo.frame.utils.TimeUtils;
 
@@ -77,6 +80,23 @@ public class NhacViecViewLayout {
 
 
                 root.post(() -> {
+//                    ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+//
+//                    List<ActivityManager.RunningTaskInfo> runningTasks = activityManager.getRunningTasks(Integer.MAX_VALUE);
+//                    String s= runningTasks.get(0).topActivity.getPackageName();
+//                    Mlog.D("ktkt "+s);
+//
+//                    ComponentName cn;
+//                    ActivityManager am = (ActivityManager) context.getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE);
+//                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+//                        cn = am.getAppTasks().get(0).getTaskInfo().topActivity;
+//                    } else {
+//                        //noinspection deprecation
+//                        cn = am.getRunningTasks(1).get(0).topActivity;
+//                    }
+//                    Mlog.D("ktkt1 "+cn.getPackageName());
+
+
                     if(countClt>0 && Calendar.getInstance().getTimeInMillis()- lastCheck>5000){
                         lastCheck= Calendar.getInstance().getTimeInMillis();
                         countClt-=5;
